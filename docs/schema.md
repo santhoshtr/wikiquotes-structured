@@ -67,6 +67,14 @@ struct PageRef {
 
 Templates are recorded, not expanded.
 
+One exception, and it is not expansion: a short table renders the few templates
+that carry words inside a quote, because dropping them would lose part of what
+was said. `{{w|Nikola Tesla|Tesla}}` shows "Tesla" and links to Wikipedia,
+`{{lang|fr|bonjour}}` shows "bonjour", `{{ISBN|…}}` shows "ISBN …", and
+`{{nbsp}}`, `{{pb}}` and the like render a space or a line break. `{{w}}` alone
+appears 64,000 times. Every other template renders as nothing and is kept as a
+span with its parameters, so a reader can render it differently.
+
 ```rust
 struct TemplateRef {
     name: String,                    // normalised: lowercase, spaces
@@ -129,7 +137,8 @@ struct Document {
 struct ParseStats {
     bytes: u32,
     error_nodes: u32,                // tree-sitter ERROR nodes
-    unassigned_lines: u32,           // non-blank source lines with no node
+    source_lines: u32,               // non-blank source lines in the page
+    unassigned_lines: u32,           // of those, the ones that reached no node
 }
 ```
 
@@ -210,13 +219,19 @@ to `Source`.
 ```rust
 enum SourceHint {
     Work { title: String, year: u16? },        // === ''Common Sense'' (1776) ===
-    Episode { title: String?, code: String? }, // === ''Pilot'' [1.01] ===
-    Season { number: u16 },                    // == Season 1 ==
+    Episode { title: String?, code: String? }, // === ''Pilot'' [1.01] === or === Episode 4 ===
+    Season { number: u16 },                    // == Season 1 == or == Season One ==
     Period { from: i32, to: i32 },             // === 1790s ===  or  === 1997 ===
+    Locator { kind: String, value: String },   // === Chapter 5 === or === Act II ===
 }
 ```
 
 `AlphaBucket` headings and role headings such as `Quotes about X` have no hint.
+
+A `Locator` is a place inside a work, not a work of its own. `Chapter 5`,
+`Act II`, `Book I` and `Preface` name where in a work the quote sits, so they
+fill a locator field in `Source` and leave the work title alone. Its `kind` is
+`chapter`, `part` or `act_scene`, which says which field it fills.
 
 ### Block
 
@@ -232,6 +247,10 @@ enum Block {
     Rule,                    // <hr>, kept so the layout can be rebuilt
 }
 ```
+
+Quotes are not always under a heading. Short pages, and most proverb pages,
+put them in `Document::lead` with no heading at all. Layer 2 reads the lead
+with an empty heading path.
 
 ### QuoteItem
 
@@ -262,6 +281,11 @@ enum AnnotationKind {
 `AnnotationKind` is a guess. `Citation` and `Attribution` are often the same line:
 `** [[John Adams]], in a letter to [[Thomas Jefferson]] (22 June 1819)`.
 Layer 2 reads both meanings from one annotation. They need not be separated here.
+
+An annotation that holds only a `{{cite …}}` call renders to no text at all.
+It is still a `Citation`, decided from its spans rather than its text. On a
+proverb page a line that opens with `Transliteration:` or `Meaning:` is a
+`Translation`.
 
 ### Exchange and Turn
 
@@ -339,6 +363,12 @@ Stored as strings so Parquet stays flat.
 
 `kind` is one of: `monologue`, `dialogue_turn`, `dialogue`, `lyric`, `tagline`,
 `proverb`.
+
+A dialogue makes more than one record. Every exchange with two or more speaking
+turns gives one `dialogue` record, whose text is the turns joined with their
+speaker names; that is the quotable unit. Every turn with a speaker also gives
+one `dialogue_turn` record, which is where the attribution and the actor name
+live. A one-turn exchange gives only the turn.
 
 `status` is one of: `sourced`, `unsourced`, `attributed`, `disputed`,
 `misattributed`. It comes from the section role first, then from the presence of a
@@ -493,8 +523,14 @@ out/en/quotes-en.parquet        one Layer 2 Quote per row
 out/en/report-en.json           counts and coverage per page type
 ```
 
-Parquet settings: ZSTD compression, 100,000 rows per row group, statistics on
-`page_title`, `page_type`, `status`, `kind`, `language` and `content_hash`.
+`report-<lang>.json` holds the numbers worth watching when a rule changes: the
+page count by type, the share of source lines that reached no node, the share of
+quotes with a speaker or a complete source per page type, and the forty most
+common headings that no rule could name.
+
+Parquet settings: ZSTD level 3, 100,000 rows per row group. The JSON Lines files
+use gzip level 3; level 6 costs about a third of the whole run time for 4% of
+size on the largest artifact.
 
 Writing path: `serde_arrow` builds Arrow `RecordBatch` values straight from the same
 serde types, and the `parquet` crate writes them. No second schema definition by hand.
