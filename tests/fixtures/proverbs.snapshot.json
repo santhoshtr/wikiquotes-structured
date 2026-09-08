@@ -204,14 +204,7 @@
       "language_from": "wiki_default",
       "kind": "proverb",
       "status": "sourced",
-      "speaker": {
-        "name": "ড° প্ৰফুল্ল কুমাৰ নাথ",
-        "kind": "person",
-        "link_site": null,
-        "link_lang": null,
-        "link_title": null,
-        "played_by": null
-      },
+      "speaker": null,
       "about": [
         {
           "name": "Assamese proverbs",
@@ -318,7 +311,7 @@
       ],
       "links": [],
       "provenance": {
-        "speaker_from": "annotation",
+        "speaker_from": null,
         "source_from": "annotation",
         "status_from": "citation_presence",
         "unparsed_annotations": 0
@@ -338,14 +331,7 @@
       "language_from": "wiki_default",
       "kind": "proverb",
       "status": "sourced",
-      "speaker": {
-        "name": "ড° প্ৰফুল্ল কুমাৰ নাথ",
-        "kind": "person",
-        "link_site": null,
-        "link_lang": null,
-        "link_title": null,
-        "played_by": null
-      },
+      "speaker": null,
       "about": [
         {
           "name": "Assamese proverbs",
@@ -452,7 +438,7 @@
       ],
       "links": [],
       "provenance": {
-        "speaker_from": "annotation",
+        "speaker_from": null,
         "source_from": "annotation",
         "status_from": "citation_presence",
         "unparsed_annotations": 0

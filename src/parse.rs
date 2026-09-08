@@ -443,7 +443,9 @@ fn strip_speaker(mut text: RichText) -> RichText {
     };
     let cut = text.text[colon + 1..].len();
     let removed = (text.text.len() - cut) as u32;
-    text.text = text.text[colon + 1..].trim_start().to_string();
+    // Some pages write ":'''Name''': :''[stage direction]''", with a second
+    // colon that belongs to nothing.
+    text.text = text.text[colon + 1..].trim_start().trim_start_matches(':').trim_start().to_string();
     let dropped = removed + (cut - text.text.len()) as u32;
     let end = text.text.len() as u32;
     text.spans.retain(|span| span.end > dropped);

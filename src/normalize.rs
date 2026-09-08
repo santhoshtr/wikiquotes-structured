@@ -300,6 +300,9 @@ impl QuoteBuilder<'_> {
         let from_annotation = citations.first().and_then(|a| agent_of(&a.text));
         match (self.document.page_type, &context.role) {
             (_, SectionRole::QuotesAbout) => from_annotation.into_agent("annotation"),
+            // A proverb has no author. A citation on a proverb page names the
+            // book that collected it, which is a source and not a speaker.
+            (PageType::Proverbs, _) => (None, None),
             (PageType::Person, SectionRole::Misattributed) => (None, None),
             (PageType::Person, _) => {
                 (Some(self.subject.clone()), Some("page_subject".to_string()))
