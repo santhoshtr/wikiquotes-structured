@@ -94,6 +94,7 @@ impl DocumentBuilder {
         document.interwiki = interwiki_of(&document.templates, &page.title);
         (document.page_type, document.page_type_evidence) = classify::classify(&document);
         document.parse.error_nodes = count_errors(root);
+        document.parse.source_lines = source.lines().filter(|l| !l.trim().is_empty()).count() as u32;
         document.parse.unassigned_lines = page_builder.coverage.unassigned(source);
         document
     }

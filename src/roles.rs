@@ -123,8 +123,18 @@ fn as_period(text: &str) -> Option<SourceHint> {
     if from > to { None } else { Some(SourceHint::Period { from, to }) }
 }
 
-/// `Pilot [1.01]` or `The Cage [1x01]`.
+/// `Pilot [1.01]`, `The Cage [1x01]` or a plain `Episode 4`.
 fn as_episode(text: &str) -> Option<SourceHint> {
+    if let Some(number) = text
+        .trim()
+        .strip_prefix("Episode ")
+        .or_else(|| text.trim().strip_prefix("episode "))
+        .map(str::trim)
+        && number.chars().all(|c| c.is_ascii_digit())
+        && !number.is_empty()
+    {
+        return Some(SourceHint::Episode { title: None, code: Some(number.to_string()) });
+    }
     let open = text.rfind('[')?;
     let close = text.rfind(']')?;
     if close < open {
@@ -242,6 +252,15 @@ mod tests {
             source_hint("Pilot [1.01]", true),
             Some(SourceHint::Episode { title: Some("Pilot".into()), code: Some("1.01".into()) })
         );
+    }
+
+    #[test]
+    fn reads_a_plain_episode_number() {
+        assert_eq!(
+            source_hint("Episode 4", false),
+            Some(SourceHint::Episode { title: None, code: Some("4".into()) })
+        );
+        assert_eq!(source_hint("Episode of a life", false), None);
     }
 
     #[test]

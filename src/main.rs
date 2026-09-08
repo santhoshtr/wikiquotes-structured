@@ -7,6 +7,7 @@ mod output;
 mod parquet_out;
 mod parse;
 mod quote;
+mod report;
 mod roles;
 mod wikitext;
 
@@ -26,6 +27,15 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
+    /// Count what the pipeline produced and how much of it was a guess.
+    Report {
+        #[arg(long)]
+        pages: PathBuf,
+        #[arg(long)]
+        quotes: PathBuf,
+        #[arg(long)]
+        out: PathBuf,
+    },
     /// Turn the Layer 1 document model into quote records.
     Normalize {
         #[arg(long, default_value = "en")]
@@ -60,6 +70,15 @@ struct Redirect<'a> {
 
 fn main() -> Result<()> {
     match Cli::parse().command {
+        Command::Report { pages, quotes, out } => {
+            let report = report::build(&pages, &quotes)?;
+            let text = serde_json::to_string_pretty(&report)?;
+            if let Some(parent) = out.parent() {
+                std::fs::create_dir_all(parent)?;
+            }
+            std::fs::write(&out, &text)?;
+            Ok(())
+        }
         Command::Normalize { wiki_language, pages, out } => {
             let _ = wiki_language;
             let mut writer = parquet_out::QuoteWriter::create(&out)?;

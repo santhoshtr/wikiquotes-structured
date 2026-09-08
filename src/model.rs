@@ -136,6 +136,8 @@ pub struct ParseStats {
     pub bytes: u32,
     /// Tree-sitter ERROR nodes. The rest of the tree is still usable.
     pub error_nodes: u32,
+    /// Non-blank source lines in the page.
+    pub source_lines: u32,
     /// Non-blank source lines that reached no node.
     pub unassigned_lines: u32,
 }
