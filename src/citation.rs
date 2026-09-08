@@ -30,12 +30,7 @@ pub fn apply(source: &mut Source, part: &RichText) {
 
     // "Retrieved 29 July 2014" is when somebody visited a web page, not when
     // the words were said.
-    if let Some((iso, end, precision, raw)) = read_date(before_retrieval(text)) {
-        set(&mut source.date_iso, Some(iso));
-        set(&mut source.date_end_iso, end);
-        set(&mut source.date_precision, Some(precision));
-        set(&mut source.date_raw, Some(raw));
-    }
+    set_date(source, read_date(before_retrieval(text)));
 
     set(&mut source.locator_page, capture(&PAGE, text));
     set(&mut source.locator_chapter, capture(&CHAPTER, text));
@@ -52,6 +47,17 @@ fn set<T>(field: &mut Option<T>, value: Option<T>) {
     if let Some(value) = value {
         *field = Some(value);
     }
+}
+
+/// The four date fields describe one date, so they are replaced together. If
+/// each was set on its own, a `1910s` heading would leave its end year of 1919
+/// behind after a citation gave the exact day.
+fn set_date(source: &mut Source, date: Option<(String, Option<String>, String, String)>) {
+    let Some((iso, end, precision, raw)) = date else { return };
+    source.date_iso = Some(iso);
+    source.date_end_iso = end;
+    source.date_precision = Some(precision);
+    source.date_raw = Some(raw);
 }
 
 /// The first italic run of a citation is the title of the work.
@@ -119,13 +125,8 @@ fn read_cite_template(source: &mut Source, template: &crate::model::TemplateRef)
     set(&mut source.isbn, param("isbn"));
     set(&mut source.url, param("url"));
     set(&mut source.work_type, cite_work_type(&template.name));
-    if let Some(date) = param("date").or_else(|| param("year"))
-        && let Some((iso, end, precision, raw)) = read_date(&date)
-    {
-        set(&mut source.date_iso, Some(iso));
-        set(&mut source.date_end_iso, end);
-        set(&mut source.date_precision, Some(precision));
-        set(&mut source.date_raw, Some(raw));
+    if let Some(date) = param("date").or_else(|| param("year")) {
+        set_date(source, read_date(&date));
     }
     source.cite_templates.push(CiteTemplate {
         name: template.name.clone(),
@@ -522,6 +523,19 @@ mod tests {
         let source = source_of("in a letter to [[Thomas Jefferson]] (22 June 1819)");
         assert_eq!(source.occasion.as_deref(), Some("letter"));
         assert_eq!(source.date_iso.as_deref(), Some("1819-06-22"));
+    }
+
+    #[test]
+    fn a_precise_date_replaces_a_period_whole() {
+        let mut source = Source::default();
+        // What a "1910s" heading leaves behind.
+        source.date_iso = Some("1910".into());
+        source.date_end_iso = Some("1919".into());
+        source.date_precision = Some("decade".into());
+        apply(&mut source, &rich("Letter to Colette O'Niel, October 23, 1916"));
+        assert_eq!(source.date_iso.as_deref(), Some("1916-10-23"));
+        assert_eq!(source.date_precision.as_deref(), Some("day"));
+        assert_eq!(source.date_end_iso, None);
     }
 
     #[test]
