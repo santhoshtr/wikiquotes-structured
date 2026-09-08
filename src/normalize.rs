@@ -442,6 +442,14 @@ fn apply_hint(source: &mut out::Source, hint: Option<&SourceHint>, is_work_page:
             }
         }
         Some(SourceHint::Season { number }) => source.episode_season = Some(*number),
+        Some(SourceHint::Locator { kind, value }) => {
+            let field = match kind.as_str() {
+                "chapter" => &mut source.locator_chapter,
+                "act_scene" => &mut source.locator_act_scene,
+                _ => &mut source.locator_part,
+            };
+            *field = Some(value.clone());
+        }
         Some(SourceHint::Period { from, to }) => {
             source.date_iso.get_or_insert(format!("{from:04}"));
             if from == to {
@@ -628,6 +636,7 @@ fn hint_name(hint: &SourceHint) -> &'static str {
         SourceHint::Episode { .. } => "episode",
         SourceHint::Season { .. } => "season",
         SourceHint::Period { .. } => "period",
+        SourceHint::Locator { .. } => "locator",
     }
 }
 

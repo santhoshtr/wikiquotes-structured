@@ -66,6 +66,14 @@ fn main() -> Result<()> {
                 std::fs::create_dir_all(parent)?;
             }
             std::fs::write(&out, &text)?;
+            eprintln!(
+                "pages {}, quotes {}, unassigned lines {}%, speaker {}%, complete source {}%",
+                report.pages.total,
+                report.quotes.total,
+                report.pages.unassigned_share,
+                report.quotes.overall.with_speaker,
+                report.quotes.overall.with_complete_source,
+            );
             Ok(())
         }
         Command::Normalize { wiki_language, pages, out } => {

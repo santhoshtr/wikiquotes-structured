@@ -81,7 +81,6 @@ $(QUOTES): $(PAGES) $(BIN)
 $(REPORT): $(PAGES) $(QUOTES) $(BIN)
 	$(BIN) report --pages $(PAGES) --quotes $(QUOTES) --out $@.part
 	mv $@.part $@
-	@cat $@
 
 clean:
 	rm -rf out

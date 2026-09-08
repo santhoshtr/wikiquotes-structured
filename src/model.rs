@@ -217,6 +217,13 @@ pub enum SourceHint {
         from: i32,
         to: i32,
     },
+    /// A place inside a work, not a work of its own: `Chapter 5`, `Act II`,
+    /// `Book I`, `Preface`. The `kind` is "chapter", "part" or "act_scene",
+    /// which says which locator field it fills.
+    Locator {
+        kind: String,
+        value: String,
+    },
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

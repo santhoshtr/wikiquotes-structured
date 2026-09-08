@@ -87,6 +87,9 @@ pub fn source_hint(heading: &str, is_italic: bool) -> Option<SourceHint> {
     if let Some(episode) = as_episode(text) {
         return Some(episode);
     }
+    if let Some(locator) = as_locator(text) {
+        return Some(locator);
+    }
     let (title, year) = split_year(text);
     // A work title is either written in italics or followed by a year.
     if is_italic || year.is_some() {
@@ -100,8 +103,55 @@ fn normalise(heading: &str) -> String {
 }
 
 fn is_season(name: &str) -> Option<u16> {
-    let rest = name.strip_prefix("season ").or_else(|| name.strip_prefix("series "))?;
-    rest.trim().parse().ok()
+    let rest = name.strip_prefix("season ").or_else(|| name.strip_prefix("series "))?.trim();
+    rest.parse().ok().or_else(|| word_number(rest))
+}
+
+/// `Season One` is as common on Wikiquote as `Season 1`.
+fn word_number(word: &str) -> Option<u16> {
+    const WORDS: [&str; 12] = [
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven",
+        "twelve",
+    ];
+    WORDS.iter().position(|w| *w == word).map(|index| index as u16 + 1)
+}
+
+/// A heading that names a place inside a work: `Chapter 5`, `Act II`,
+/// `Book I`, `Preface`. It is not a work of its own.
+fn as_locator(text: &str) -> Option<SourceHint> {
+    let text = text.trim();
+    let lower = text.to_lowercase();
+    for (label, kind) in [
+        ("chapter", "chapter"),
+        ("ch.", "chapter"),
+        ("canto", "chapter"),
+        ("act", "act_scene"),
+        ("scene", "act_scene"),
+        ("part", "part"),
+        ("book", "part"),
+        ("volume", "part"),
+        ("vol.", "part"),
+        ("no.", "part"),
+    ] {
+        if let Some(rest) = lower.strip_prefix(label) {
+            let rest = rest.trim();
+            let is_number = !rest.is_empty()
+                && (rest.chars().all(|c| c.is_ascii_digit())
+                    || rest.chars().all(|c| "ivxlc".contains(c))
+                    || word_number(rest).is_some());
+            if is_number {
+                return Some(SourceHint::Locator {
+                    kind: kind.to_string(),
+                    value: text.to_string(),
+                });
+            }
+        }
+    }
+    if matches!(lower.as_str(), "preface" | "prologue" | "epilogue" | "introduction" | "incipit" | "foreword" | "afterword")
+    {
+        return Some(SourceHint::Locator { kind: "part".to_string(), value: text.to_string() });
+    }
+    None
 }
 
 /// `1790s`, `1997` or `1914-1918`.
@@ -267,5 +317,29 @@ mod tests {
     fn a_plain_heading_is_not_a_work() {
         assert_eq!(source_hint("Other", false), None);
         assert_eq!(source_hint("Discourse to the Theophilanthropists", false), None);
+    }
+
+    #[test]
+    fn reads_a_place_inside_a_work() {
+        assert_eq!(
+            source_hint("Chapter 5", false),
+            Some(SourceHint::Locator { kind: "chapter".into(), value: "Chapter 5".into() })
+        );
+        assert_eq!(
+            source_hint("Act II", false),
+            Some(SourceHint::Locator { kind: "act_scene".into(), value: "Act II".into() })
+        );
+        assert_eq!(
+            source_hint("Preface", false),
+            Some(SourceHint::Locator { kind: "part".into(), value: "Preface".into() })
+        );
+        // A title that opens with one of those words is still a title.
+        assert_eq!(source_hint("Book of Mormon", false), None);
+    }
+
+    #[test]
+    fn reads_a_season_written_as_a_word() {
+        assert_eq!(source_hint("Season One", false), Some(SourceHint::Season { number: 1 }));
+        assert_eq!(role_of("Season One"), SectionRole::Episodes);
     }
 }
