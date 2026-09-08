@@ -1,6 +1,7 @@
 mod dump;
 mod model;
 mod output;
+mod roles;
 mod wikitext;
 
 use std::path::PathBuf;
