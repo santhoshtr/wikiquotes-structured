@@ -167,7 +167,9 @@ fn resolve_entity(name: &str) -> String {
             return c.to_string();
         }
     }
-    match quick_xml::escape::resolve_predefined_entity(name) {
+    // XML defines only lt, gt, amp, apos and quot. Anything else in a dump is
+    // stored escaped, so it reaches us as text, not as a reference.
+    match quick_xml::escape::resolve_xml_entity(name) {
         Some(text) => text.to_string(),
         None => format!("&{name};"),
     }
