@@ -1,0 +1,39 @@
+//! Writers for the pipeline artifacts.
+
+use std::fs::File;
+use std::io::{BufWriter, Write};
+use std::path::Path;
+
+use anyhow::{Context, Result};
+use flate2::Compression;
+use flate2::write::GzEncoder;
+use serde::Serialize;
+
+/// Writes one JSON value per line into a gzip file.
+pub struct JsonLines {
+    inner: GzEncoder<BufWriter<File>>,
+}
+
+impl JsonLines {
+    pub fn create(path: &Path) -> Result<Self> {
+        if let Some(parent) = path.parent() {
+            std::fs::create_dir_all(parent)?;
+        }
+        let file =
+            File::create(path).with_context(|| format!("cannot write {}", path.display()))?;
+        let inner = GzEncoder::new(BufWriter::with_capacity(1 << 20, file), Compression::default());
+        Ok(Self { inner })
+    }
+
+    pub fn write(&mut self, value: &impl Serialize) -> Result<()> {
+        serde_json::to_writer(&mut self.inner, value)?;
+        self.inner.write_all(b"\n")?;
+        Ok(())
+    }
+
+    /// Flushes the gzip stream. Dropping the writer would hide an error here.
+    pub fn finish(self) -> Result<()> {
+        self.inner.finish()?.flush()?;
+        Ok(())
+    }
+}

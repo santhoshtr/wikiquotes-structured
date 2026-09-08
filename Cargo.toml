@@ -1,6 +1,6 @@
 [package]
 name = "wikiquotes-structured"
-description = "wikitext grammar for the tree-sitter parsing library"
+description = "Turn a Wikiquote XML dump into structured quotes"
 version = "0.1.0"
 edition = "2024"
 keywords = ["wikiquotes", "parsing", "wikitext"]
@@ -9,4 +9,10 @@ repository = "https://github.com/santhoshtr/wikiquotes-structured"
 license = "MIT"
 
 [dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.6", features = ["derive"] }
+flate2 = "1.1.10"
+quick-xml = "0.42.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
 tree-sitter-wikitext = "0.1.3"
