@@ -32,6 +32,108 @@ out/en/report-en.json          coverage and quality numbers
 
 See [docs/schema.md](docs/schema.md) for the field definitions.
 
+## Examples
+
+Two records from the English dump, as `quotes-en.parquet` holds them. Null
+fields are left out here for room; they are present in the file.
+
+A quote by a person. Wikiquote spreads the citation over three places: the
+subject of the page said it, a `=== 1910s ===` heading holds the decade, and
+the `**` line below the quote holds the letter, the date, the collection and
+the page. `source.parts` says which piece came from where, and `source.raw`
+joins them into one citation.
+
+```json
+{
+  "id": "3d0d27db3d52a1e1",
+  "content_hash": "7fdff6932a86a86b",
+  "wiki_language": "en",
+  "page_title": "Bertrand Russell",
+  "page_id": 30,
+  "page_type": "person",
+  "text": "[One] must look into hell before one has any right to speak of heaven.",
+  "language": "en",
+  "language_from": "wiki_default",
+  "kind": "monologue",
+  "status": "sourced",
+  "speaker": {
+    "name": "Bertrand Russell",
+    "kind": "person",
+    "link_site": "wikiquote",
+    "link_lang": "en",
+    "link_title": "Bertrand Russell"
+  },
+  "source": {
+    "raw": "1910s — Letter to Colette O'Niel, October 23, 1916; published in ''The Selected Letters of Bertrand Russell: The Public Years, 1914-1970'', p. 87",
+    "complete": true,
+    "parts": [
+      { "origin": "heading", "level": 3, "hint": "period", "raw": "1910s" },
+      { "origin": "annotation",
+        "raw": "Letter to Colette O'Niel, October 23, 1916; published in ''The Selected Letters of Bertrand Russell: The Public Years, 1914-1970'', p. 87" }
+    ],
+    "work_title": "The Selected Letters of Bertrand Russell: The Public Years, 1914-1970",
+    "date_iso": "1916-10-23",
+    "date_precision": "day",
+    "date_raw": "October 23, 1916",
+    "locator_page": "p. 87",
+    "occasion": "letter"
+  },
+  "context_path": ["Quotes", "1910s"],
+  "annotations": [
+    { "kind": "citation",
+      "text": "Letter to Colette O'Niel, October 23, 1916; published in The Selected Letters of Bertrand Russell: The Public Years, 1914-1970, p. 87" }
+  ],
+  "provenance": {
+    "speaker_from": "page_subject",
+    "source_from": "mixed",
+    "status_from": "citation_presence",
+    "unparsed_annotations": 0
+  }
+}
+```
+
+A line of film dialogue. The speaker is a character, and the actor comes from
+the Cast section of the same page. The film itself is the source, so there is
+no citation to read and no date to find. `provenance` says as much.
+
+```json
+{
+  "id": "47f0e70b84557720",
+  "content_hash": "83bdd6fae817ab4b",
+  "wiki_language": "en",
+  "page_title": "Van Helsing",
+  "page_id": 4443,
+  "page_type": "film",
+  "text": "I could never allow him to be used for such evil!",
+  "wikitext": "'''Dr. Frankenstein:''' I could never allow him to be used for such evil!",
+  "language": "en",
+  "language_from": "wiki_default",
+  "kind": "dialogue_turn",
+  "status": "sourced",
+  "speaker": {
+    "name": "Dr. Frankenstein",
+    "kind": "character",
+    "played_by": "Samuel West"
+  },
+  "source": {
+    "raw": "Van Helsing",
+    "complete": true,
+    "parts": [ { "origin": "page_subject", "raw": "Van Helsing" } ],
+    "work_title": "Van Helsing",
+    "work_type": "film",
+    "work_link_site": "wikiquote",
+    "work_link_title": "Van Helsing"
+  },
+  "context_path": ["Dialogue"],
+  "provenance": {
+    "speaker_from": "dialogue_marker",
+    "source_from": "page_subject",
+    "status_from": "citation_presence",
+    "unparsed_annotations": 0
+  }
+}
+```
+
 ## Usage
 
 You need Rust, GNU Make 4.3 or later, curl and bzip2.
