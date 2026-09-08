@@ -1,15 +1,3 @@
-mod citation;
-mod classify;
-mod dump;
-mod model;
-mod normalize;
-mod output;
-mod parquet_out;
-mod parse;
-mod quote;
-mod report;
-mod roles;
-mod wikitext;
 
 use std::path::PathBuf;
 
@@ -17,6 +5,7 @@ use anyhow::Result;
 use clap::{Parser, Subcommand};
 use rayon::prelude::*;
 use serde::Serialize;
+use wikiquotes_structured::{dump, model, normalize, output, parquet_out, parse, report};
 
 #[derive(Parser)]
 #[command(version, about = "Turn a Wikiquote XML dump into structured quotes")]

@@ -1,0 +1,413 @@
+{
+  "document": {
+    "wiki_language": "en",
+    "title": "ChalkZone",
+    "page_id": 3389,
+    "revision_id": 3880408,
+    "timestamp": "2026-01-22T01:28:27Z",
+    "page_type": "television_series",
+    "page_type_evidence": [
+      "category: cancelled shows"
+    ],
+    "categories": [
+      "2000s American animated comedy TV shows",
+      "2000s Nickelodeon original series",
+      "Traditionally animated TV shows",
+      "American children's animated adventure TV shows",
+      "American children's animated comedy TV shows",
+      "American children's animated fantasy TV shows",
+      "American children's animated musical TV shows",
+      "Elementary school TV shows",
+      "Cancelled shows",
+      "Nicktoons",
+      "Animated TV shows about children"
+    ],
+    "lead": [
+      {
+        "block": "paragraph",
+        "text": "ChalkZone  is an American animated television series created by Bill Burnett and Larry Huber for Nickelodeon. The series follows Rudy Tabootie, an elementary school student whose magic chalk allows him into the ChalkZone, an alternate dimension where everything drawn on a blackboard and erased becomes real. The show concentrates on the adventures of Rudy, his sidekick Snap, and classmate, Penny Sanchez, within the zone.",
+        "wikitext": "'''''[[w:ChalkZone|ChalkZone]]'''''  is an [[American]] animated television series created by [[w:Bill Burnett (writer)|Bill Burnett]] and [[w:Larry Huber|Larry Huber]] for [[w:Nickelodeon|Nickelodeon]]. The series follows Rudy Tabootie, an elementary school student whose magic chalk allows him into the ChalkZone, an alternate dimension where everything drawn on a blackboard and erased becomes real. The show concentrates on the adventures of Rudy, his sidekick Snap, and classmate, Penny Sanchez, within the zone.",
+        "spans": [
+          {
+            "start": 0,
+            "end": 9,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "ChalkZone"
+            }
+          },
+          {
+            "start": 0,
+            "end": 9,
+            "span": "bold_italic"
+          },
+          {
+            "start": 17,
+            "end": 25,
+            "span": "link",
+            "target": {
+              "site": "wikiquote",
+              "lang": "en",
+              "title": "American"
+            }
+          },
+          {
+            "start": 64,
+            "end": 76,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Bill Burnett (writer)"
+            }
+          },
+          {
+            "start": 81,
+            "end": 92,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Larry Huber"
+            }
+          },
+          {
+            "start": 97,
+            "end": 108,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Nickelodeon"
+            }
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "level": 2,
+        "heading": {
+          "text": "Recurring quotes",
+          "wikitext": "Recurring quotes"
+        },
+        "role": {
+          "role": "other",
+          "value": "Recurring quotes"
+        },
+        "blocks": [
+          {
+            "block": "quote",
+            "text": {
+              "text": "Check it out! - Tito",
+              "wikitext": " Check it out! - Tito"
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "The Skrawl",
+          "wikitext": "The Skrawl"
+        },
+        "role": {
+          "role": "other",
+          "value": "The Skrawl"
+        },
+        "blocks": [
+          {
+            "block": "quote",
+            "text": {
+              "text": "Tito? - Dodger",
+              "wikitext": "Tito? - Dodger"
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "Future Zone",
+          "wikitext": "Future Zone"
+        },
+        "role": {
+          "role": "other",
+          "value": "Future Zone"
+        },
+        "blocks": [
+          {
+            "block": "quote",
+            "text": {
+              "text": "Hey Man Check it out, Huh! - Tito",
+              "wikitext": "Hey Man Check it out, Huh! - Tito"
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "External links",
+          "wikitext": "External links"
+        },
+        "role": {
+          "role": "external_links"
+        },
+        "blocks": [
+          {
+            "block": "item",
+            "text": "",
+            "wikitext": "{{Wikipedia-inline}}",
+            "spans": [
+              {
+                "start": 0,
+                "end": 0,
+                "span": "template",
+                "name": "wikipedia-inline",
+                "wikitext": "{{Wikipedia-inline}}"
+              }
+            ]
+          },
+          {
+            "block": "template",
+            "name": "italic title",
+            "wikitext": "{{italic title}}"
+          }
+        ]
+      }
+    ],
+    "parse": {
+      "bytes": 1227,
+      "error_nodes": 0,
+      "source_lines": 21,
+      "unassigned_lines": 0
+    }
+  },
+  "quotes": [
+    {
+      "id": "e3a4490898d40761",
+      "content_hash": "44a3646a4233f0de",
+      "wiki_language": "en",
+      "page_title": "ChalkZone",
+      "page_id": 3389,
+      "page_type": "television_series",
+      "revision_id": 3880408,
+      "text": "Check it out! - Tito",
+      "wikitext": " Check it out! - Tito",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [
+        {
+          "name": "ChalkZone",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "ChalkZone",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "ChalkZone",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "ChalkZone"
+          }
+        ],
+        "work_title": "ChalkZone",
+        "work_type": "series",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "ChalkZone",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Recurring quotes"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "73bdd15fbfc8bfd6",
+      "content_hash": "88d5bc9a6f34afda",
+      "wiki_language": "en",
+      "page_title": "ChalkZone",
+      "page_id": 3389,
+      "page_type": "television_series",
+      "revision_id": 3880408,
+      "text": "Tito? - Dodger",
+      "wikitext": "Tito? - Dodger",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [
+        {
+          "name": "ChalkZone",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "ChalkZone",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "ChalkZone",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "ChalkZone"
+          }
+        ],
+        "work_title": "ChalkZone",
+        "work_type": "series",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "ChalkZone",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "The Skrawl"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "4df199f0678d0e14",
+      "content_hash": "e368f5267b9eb763",
+      "wiki_language": "en",
+      "page_title": "ChalkZone",
+      "page_id": 3389,
+      "page_type": "television_series",
+      "revision_id": 3880408,
+      "text": "Hey Man Check it out, Huh! - Tito",
+      "wikitext": "Hey Man Check it out, Huh! - Tito",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [
+        {
+          "name": "ChalkZone",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "ChalkZone",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "ChalkZone",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "ChalkZone"
+          }
+        ],
+        "work_title": "ChalkZone",
+        "work_type": "series",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "ChalkZone",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Future Zone"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    }
+  ]
+}

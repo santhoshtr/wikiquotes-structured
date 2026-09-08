@@ -1,0 +1,407 @@
+{
+  "document": {
+    "wiki_language": "en",
+    "title": "Cecilia Eusepi",
+    "page_id": 243332,
+    "revision_id": 3518371,
+    "timestamp": "2024-05-20T17:54:18Z",
+    "page_type": "person",
+    "page_type_evidence": [
+      "category: 1910 births"
+    ],
+    "categories": [
+      "1910 births",
+      "1928 deaths",
+      "Catholics from Italy",
+      "Christianity and women",
+      "People from Lazio",
+      "Women born in the 20th century",
+      "Beatified people"
+    ],
+    "lead": [
+      {
+        "block": "media",
+        "file": "File:Cecilia Eusepi.jpg",
+        "caption": {
+          "text": "",
+          "wikitext": ""
+        }
+      },
+      {
+        "block": "paragraph",
+        "text": "Cecilia Eusepi (17 February 1910 – 1 October 1928) was an Italian Servite who has been beatified by the Catholic Church.",
+        "wikitext": "'''{{w|Cecilia Eusepi}}''' (17 February 1910 – 1 October 1928) was an Italian [[w:Servite Order|Servite]] who has been [[w:Beatification|beatified]] by the [[Catholic Church]].",
+        "spans": [
+          {
+            "start": 0,
+            "end": 14,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Cecilia Eusepi"
+            }
+          },
+          {
+            "start": 0,
+            "end": 14,
+            "span": "template",
+            "name": "w",
+            "params": [
+              [
+                "1",
+                "Cecilia Eusepi"
+              ]
+            ],
+            "wikitext": "{{w|Cecilia Eusepi}}"
+          },
+          {
+            "start": 0,
+            "end": 14,
+            "span": "bold"
+          },
+          {
+            "start": 68,
+            "end": 75,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Servite Order"
+            }
+          },
+          {
+            "start": 89,
+            "end": 98,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Beatification"
+            }
+          },
+          {
+            "start": 106,
+            "end": 121,
+            "span": "link",
+            "target": {
+              "site": "wikiquote",
+              "lang": "en",
+              "title": "Catholic Church"
+            }
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "level": 2,
+        "heading": {
+          "text": "Quotes",
+          "wikitext": "Quotes"
+        },
+        "role": {
+          "role": "quotes"
+        },
+        "blocks": [
+          {
+            "block": "quote",
+            "text": {
+              "text": "It is beautiful to give oneself to Jesus who gave himself to us without reserve.",
+              "wikitext": " It is beautiful to give oneself to [[Jesus]] who gave himself to us without reserve.",
+              "spans": [
+                {
+                  "start": 35,
+                  "end": 40,
+                  "span": "link",
+                  "target": {
+                    "site": "wikiquote",
+                    "lang": "en",
+                    "title": "Jesus"
+                  }
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Quoted in the Angelus by Benedict XVI (17 June 2012).",
+                  "wikitext": " Quoted in the [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] by [[Pope Benedict XVI|Benedict XVI]] (17 June 2012).",
+                  "spans": [
+                    {
+                      "start": 14,
+                      "end": 21,
+                      "span": "external_link",
+                      "url": "https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html"
+                    },
+                    {
+                      "start": 25,
+                      "end": 37,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Pope Benedict XVI"
+                      }
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "Quotes about Cecilia Eusepi",
+          "wikitext": "Quotes about Cecilia Eusepi"
+        },
+        "role": {
+          "role": "quotes_about"
+        },
+        "blocks": [
+          {
+            "block": "quote",
+            "text": {
+              "text": "This young woman who aspired to be a missionary sister was forced to leave her convent because of sickness which she lived with steadfast faith, showing a great capacity for sacrifice for the salvation of souls.",
+              "wikitext": " This young woman who aspired to be a missionary sister was forced to leave her convent because of sickness which she lived with steadfast faith, showing a great capacity for sacrifice for the salvation of souls."
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Benedict XVI, Angelus (17 June 2012).",
+                  "wikitext": " [[Pope Benedict XVI|Benedict XVI]], [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] (17 June 2012).",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 12,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Pope Benedict XVI"
+                      }
+                    },
+                    {
+                      "start": 14,
+                      "end": 21,
+                      "span": "external_link",
+                      "url": "https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html"
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "External links",
+          "wikitext": "External links"
+        },
+        "role": {
+          "role": "external_links"
+        },
+        "blocks": [
+          {
+            "block": "template",
+            "name": "wikipedia",
+            "wikitext": "{{wikipedia}}"
+          },
+          {
+            "block": "paragraph",
+            "text": "",
+            "wikitext": "{{DEFAULTSORT:Eusepi, Cecilia}}"
+          }
+        ]
+      }
+    ],
+    "parse": {
+      "bytes": 1201,
+      "error_nodes": 1,
+      "source_lines": 18,
+      "unassigned_lines": 0
+    }
+  },
+  "quotes": [
+    {
+      "id": "299a886cff452081",
+      "content_hash": "aa7db125d1dd634e",
+      "wiki_language": "en",
+      "page_title": "Cecilia Eusepi",
+      "page_id": 243332,
+      "page_type": "person",
+      "revision_id": 3518371,
+      "text": "It is beautiful to give oneself to Jesus who gave himself to us without reserve.",
+      "wikitext": " It is beautiful to give oneself to [[Jesus]] who gave himself to us without reserve.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Cecilia Eusepi",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Cecilia Eusepi",
+        "played_by": null
+      },
+      "about": [],
+      "source": {
+        "raw": "Quoted in the [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] by [[Pope Benedict XVI|Benedict XVI]] (17 June 2012).",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "Quoted in the [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] by [[Pope Benedict XVI|Benedict XVI]] (17 June 2012)."
+          }
+        ],
+        "work_title": null,
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "2012-06-17",
+        "date_end_iso": null,
+        "date_precision": "day",
+        "date_raw": "17 June 2012",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": "https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html",
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quotes"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Quoted in the Angelus by Benedict XVI (17 June 2012).",
+          "wikitext": "Quoted in the [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] by [[Pope Benedict XVI|Benedict XVI]] (17 June 2012)."
+        }
+      ],
+      "translations": [],
+      "links": [
+        {
+          "site": "wikiquote",
+          "lang": "en",
+          "title": "Jesus",
+          "fragment": null
+        }
+      ],
+      "provenance": {
+        "speaker_from": "page_subject",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "5ec896de17f9cba2",
+      "content_hash": "f48a4d233c579565",
+      "wiki_language": "en",
+      "page_title": "Cecilia Eusepi",
+      "page_id": 243332,
+      "page_type": "person",
+      "revision_id": 3518371,
+      "text": "This young woman who aspired to be a missionary sister was forced to leave her convent because of sickness which she lived with steadfast faith, showing a great capacity for sacrifice for the salvation of souls.",
+      "wikitext": " This young woman who aspired to be a missionary sister was forced to leave her convent because of sickness which she lived with steadfast faith, showing a great capacity for sacrifice for the salvation of souls.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Benedict XVI",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Pope Benedict XVI",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Cecilia Eusepi",
+          "kind": "person",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Cecilia Eusepi",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Pope Benedict XVI|Benedict XVI]], [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] (17 June 2012).",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Pope Benedict XVI|Benedict XVI]], [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] (17 June 2012)."
+          }
+        ],
+        "work_title": null,
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "2012-06-17",
+        "date_end_iso": null,
+        "date_precision": "day",
+        "date_raw": "17 June 2012",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": "https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html",
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quotes about Cecilia Eusepi"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Benedict XVI, Angelus (17 June 2012).",
+          "wikitext": "[[Pope Benedict XVI|Benedict XVI]], [https://www.vatican.va/content/benedict-xvi/en/angelus/2012/documents/hf_ben-xvi_ang_20120617.html Angelus] (17 June 2012)."
+        }
+      ],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    }
+  ]
+}

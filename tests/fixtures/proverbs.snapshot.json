@@ -1,0 +1,462 @@
+{
+  "document": {
+    "wiki_language": "en",
+    "title": "Assamese proverbs",
+    "page_id": 256779,
+    "revision_id": 3630152,
+    "timestamp": "2024-12-07T21:45:51Z",
+    "page_type": "proverbs",
+    "page_type_evidence": [
+      "category: indian proverbs"
+    ],
+    "categories": [
+      "Indian proverbs",
+      "Proverbs by language",
+      "Assamese language"
+    ],
+    "lead": [
+      {
+        "block": "quote",
+        "text": {
+          "text": "অসতীৰ সজ জ্ঞান, গৰু চোৰৰ গঙ্গাস্নান",
+          "wikitext": " অসতীৰ সজ জ্ঞান, গৰু চোৰৰ গঙ্গাস্নান"
+        },
+        "annotations": [
+          {
+            "depth": 2,
+            "text": {
+              "text": "Transliteration: Asotir soz gyan, Goru churor Gangasnan\"",
+              "wikitext": " Transliteration: ''Asotir soz gyan, Goru churor Gangasnan\"",
+              "spans": [
+                {
+                  "start": 17,
+                  "end": 56,
+                  "span": "italic"
+                }
+              ]
+            },
+            "kind": "translation"
+          },
+          {
+            "depth": 2,
+            "text": {
+              "text": "Meaning: It is useless to give good knowledge to the dishonest. Stealing a cow is a sinful act. They earn their living by stealing. Even bathing in the Ganges cannot take away their sins.\"",
+              "wikitext": " Meaning: ''It is useless to give good knowledge to the dishonest. Stealing a cow is a sinful act. They earn their living by stealing. Even bathing in the [[Ganges]] cannot take away their sins.\"",
+              "spans": [
+                {
+                  "start": 152,
+                  "end": 158,
+                  "span": "link",
+                  "target": {
+                    "site": "wikiquote",
+                    "lang": "en",
+                    "title": "Ganges"
+                  }
+                },
+                {
+                  "start": 9,
+                  "end": 188,
+                  "span": "italic"
+                }
+              ]
+            },
+            "kind": "translation"
+          },
+          {
+            "depth": 2,
+            "text": {
+              "text": "",
+              "wikitext": " {{cite book|title=অসমীয়া যোজনা পটন্তৰ|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 0,
+                  "span": "template",
+                  "name": "cite book",
+                  "params": [
+                    [
+                      "title",
+                      "অসমীয়া যোজনা পটন্তৰ"
+                    ],
+                    [
+                      "author",
+                      "ড° প্ৰফুল্ল কুমাৰ নাথ"
+                    ],
+                    [
+                      "publisher",
+                      "নিষ্ঠা প্ৰকাশন"
+                    ],
+                    [
+                      "year",
+                      "2016"
+                    ],
+                    [
+                      "language",
+                      "as"
+                    ]
+                  ],
+                  "wikitext": "{{cite book|title=অসমীয়া যোজনা পটন্তৰ|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}"
+                }
+              ]
+            },
+            "kind": "citation"
+          }
+        ]
+      },
+      {
+        "block": "quote",
+        "text": {
+          "text": "অতি ধুনতীৰ ঘৰ নাশ, ধুনে কৰে সৰ্বনাশ",
+          "wikitext": " অতি ধুনতীৰ ঘৰ নাশ, ধুনে কৰে সৰ্বনাশ"
+        },
+        "annotations": [
+          {
+            "depth": 2,
+            "text": {
+              "text": "Transliteration: Ati dhunotir ghor nash, Dhune kore sarbonash\"",
+              "wikitext": " Transliteration: ''Ati dhunotir ghor nash, Dhune kore sarbonash\"",
+              "spans": [
+                {
+                  "start": 17,
+                  "end": 62,
+                  "span": "italic"
+                }
+              ]
+            },
+            "kind": "translation"
+          },
+          {
+            "depth": 2,
+            "text": {
+              "text": "Meaning: Women who are too busy with style do not have time to do household chores properly, which hinders the improvement of the household.\"",
+              "wikitext": " Meaning: ''Women who are too busy with style do not have time to do household chores properly, which hinders the improvement of the household.\"",
+              "spans": [
+                {
+                  "start": 9,
+                  "end": 141,
+                  "span": "italic"
+                }
+              ]
+            },
+            "kind": "translation"
+          },
+          {
+            "depth": 2,
+            "text": {
+              "text": "",
+              "wikitext": " {{cite book|title=অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 0,
+                  "span": "template",
+                  "name": "cite book",
+                  "params": [
+                    [
+                      "title",
+                      "অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা"
+                    ],
+                    [
+                      "author",
+                      "ড° প্ৰফুল্ল কুমাৰ নাথ"
+                    ],
+                    [
+                      "publisher",
+                      "নিষ্ঠা প্ৰকাশন"
+                    ],
+                    [
+                      "year",
+                      "2016"
+                    ],
+                    [
+                      "language",
+                      "as"
+                    ]
+                  ],
+                  "wikitext": "{{cite book|title=অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}"
+                }
+              ]
+            },
+            "kind": "citation"
+          }
+        ]
+      }
+    ],
+    "parse": {
+      "bytes": 1224,
+      "error_nodes": 4,
+      "source_lines": 11,
+      "unassigned_lines": 0
+    }
+  },
+  "quotes": [
+    {
+      "id": "fd5d8209c02156e0",
+      "content_hash": "465583a7133da819",
+      "wiki_language": "en",
+      "page_title": "Assamese proverbs",
+      "page_id": 256779,
+      "page_type": "proverbs",
+      "revision_id": 3630152,
+      "text": "অসতীৰ সজ জ্ঞান, গৰু চোৰৰ গঙ্গাস্নান",
+      "wikitext": " অসতীৰ সজ জ্ঞান, গৰু চোৰৰ গঙ্গাস্নান",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "proverb",
+      "status": "sourced",
+      "speaker": {
+        "name": "ড° প্ৰফুল্ল কুমাৰ নাথ",
+        "kind": "person",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Assamese proverbs",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Assamese proverbs",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "{{cite book|title=অসমীয়া যোজনা পটন্তৰ|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "{{cite book|title=অসমীয়া যোজনা পটন্তৰ|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}"
+          }
+        ],
+        "work_title": "অসমীয়া যোজনা পটন্তৰ",
+        "work_type": "book",
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "2016",
+        "date_end_iso": null,
+        "date_precision": "year",
+        "date_raw": "2016",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": "নিষ্ঠা প্ৰকাশন",
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": [
+          {
+            "name": "cite book",
+            "params": [
+              {
+                "key": "title",
+                "value": "অসমীয়া যোজনা পটন্তৰ"
+              },
+              {
+                "key": "author",
+                "value": "ড° প্ৰফুল্ল কুমাৰ নাথ"
+              },
+              {
+                "key": "publisher",
+                "value": "নিষ্ঠা প্ৰকাশন"
+              },
+              {
+                "key": "year",
+                "value": "2016"
+              },
+              {
+                "key": "language",
+                "value": "as"
+              }
+            ]
+          }
+        ]
+      },
+      "context_path": [],
+      "annotations": [
+        {
+          "kind": "translation",
+          "text": "Transliteration: Asotir soz gyan, Goru churor Gangasnan\"",
+          "wikitext": "Transliteration: ''Asotir soz gyan, Goru churor Gangasnan\""
+        },
+        {
+          "kind": "translation",
+          "text": "Meaning: It is useless to give good knowledge to the dishonest. Stealing a cow is a sinful act. They earn their living by stealing. Even bathing in the Ganges cannot take away their sins.\"",
+          "wikitext": "Meaning: ''It is useless to give good knowledge to the dishonest. Stealing a cow is a sinful act. They earn their living by stealing. Even bathing in the [[Ganges]] cannot take away their sins.\""
+        },
+        {
+          "kind": "citation",
+          "text": "",
+          "wikitext": "{{cite book|title=অসমীয়া যোজনা পটন্তৰ|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}"
+        }
+      ],
+      "translations": [
+        {
+          "text": "Asotir soz gyan, Goru churor Gangasnan\"",
+          "language": null,
+          "translator": null,
+          "is_original": false
+        },
+        {
+          "text": "It is useless to give good knowledge to the dishonest. Stealing a cow is a sinful act. They earn their living by stealing. Even bathing in the Ganges cannot take away their sins.\"",
+          "language": null,
+          "translator": null,
+          "is_original": false
+        }
+      ],
+      "links": [],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "1441336701938134",
+      "content_hash": "8342c2081fc7c0c6",
+      "wiki_language": "en",
+      "page_title": "Assamese proverbs",
+      "page_id": 256779,
+      "page_type": "proverbs",
+      "revision_id": 3630152,
+      "text": "অতি ধুনতীৰ ঘৰ নাশ, ধুনে কৰে সৰ্বনাশ",
+      "wikitext": " অতি ধুনতীৰ ঘৰ নাশ, ধুনে কৰে সৰ্বনাশ",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "proverb",
+      "status": "sourced",
+      "speaker": {
+        "name": "ড° প্ৰফুল্ল কুমাৰ নাথ",
+        "kind": "person",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Assamese proverbs",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Assamese proverbs",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "{{cite book|title=অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "{{cite book|title=অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}"
+          }
+        ],
+        "work_title": "অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা",
+        "work_type": "book",
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "2016",
+        "date_end_iso": null,
+        "date_precision": "year",
+        "date_raw": "2016",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": "নিষ্ঠা প্ৰকাশন",
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": [
+          {
+            "name": "cite book",
+            "params": [
+              {
+                "key": "title",
+                "value": "অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা"
+              },
+              {
+                "key": "author",
+                "value": "ড° প্ৰফুল্ল কুমাৰ নাথ"
+              },
+              {
+                "key": "publisher",
+                "value": "নিষ্ঠা প্ৰকাশন"
+              },
+              {
+                "key": "year",
+                "value": "2016"
+              },
+              {
+                "key": "language",
+                "value": "as"
+              }
+            ]
+          }
+        ]
+      },
+      "context_path": [],
+      "annotations": [
+        {
+          "kind": "translation",
+          "text": "Transliteration: Ati dhunotir ghor nash, Dhune kore sarbonash\"",
+          "wikitext": "Transliteration: ''Ati dhunotir ghor nash, Dhune kore sarbonash\""
+        },
+        {
+          "kind": "translation",
+          "text": "Meaning: Women who are too busy with style do not have time to do household chores properly, which hinders the improvement of the household.\"",
+          "wikitext": "Meaning: ''Women who are too busy with style do not have time to do household chores properly, which hinders the improvement of the household.\""
+        },
+        {
+          "kind": "citation",
+          "text": "",
+          "wikitext": "{{cite book|title=অসমীয়া ভাষাৰ অলংকাৰ, ফকৰা যোজনা|author=ড° প্ৰফুল্ল কুমাৰ নাথ|publisher=নিষ্ঠা প্ৰকাশন|year=2016|language=as}}"
+        }
+      ],
+      "translations": [
+        {
+          "text": "Ati dhunotir ghor nash, Dhune kore sarbonash\"",
+          "language": null,
+          "translator": null,
+          "is_original": false
+        },
+        {
+          "text": "Women who are too busy with style do not have time to do household chores properly, which hinders the improvement of the household.\"",
+          "language": null,
+          "translator": null,
+          "is_original": false
+        }
+      ],
+      "links": [],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    }
+  ]
+}

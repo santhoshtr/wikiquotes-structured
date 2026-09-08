@@ -1,0 +1,1047 @@
+{
+  "document": {
+    "wiki_language": "en",
+    "title": "Warmness",
+    "page_id": 204248,
+    "revision_id": 3687984,
+    "timestamp": "2025-03-21T15:47:27Z",
+    "page_type": "theme",
+    "page_type_evidence": [
+      "category: themes"
+    ],
+    "categories": [
+      "Themes"
+    ],
+    "templates": [
+      {
+        "name": "theme-stub",
+        "wikitext": "{{Theme-stub}}"
+      }
+    ],
+    "lead": [
+      {
+        "block": "paragraph",
+        "text": "Warmness is the state of being warm and excited.",
+        "wikitext": "'''[[Wiktionary:Warmness|Warmness]]''' is the state of being [[Wiktionary:warm|warm]] and excited.",
+        "spans": [
+          {
+            "start": 0,
+            "end": 8,
+            "span": "link",
+            "target": {
+              "site": "wiktionary",
+              "lang": "en",
+              "title": "Warmness"
+            }
+          },
+          {
+            "start": 0,
+            "end": 8,
+            "span": "bold"
+          },
+          {
+            "start": 31,
+            "end": 35,
+            "span": "link",
+            "target": {
+              "site": "wiktionary",
+              "lang": "en",
+              "title": "warm"
+            }
+          }
+        ]
+      },
+      {
+        "block": "template",
+        "name": "theme-stub",
+        "wikitext": "{{Theme-stub}}"
+      }
+    ],
+    "sections": [
+      {
+        "level": 2,
+        "heading": {
+          "text": "Quote",
+          "wikitext": "Quote"
+        },
+        "role": {
+          "role": "quotes"
+        },
+        "blocks": [
+          {
+            "block": "quote",
+            "text": {
+              "text": "Dear, as the light that visits these sad eyes; \n Dear, as the ruddy drops that warm my heart.",
+              "wikitext": " Dear, as the light that visits these sad eyes; <br /> Dear, as the ruddy drops that warm my heart."
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Thomas Gray, The Bard (1757), I. 3. lines 39-40.",
+                  "wikitext": " [[Thomas Gray]], ''[[w:The Bard (poem)|The Bard]]'' (1757), [[s:The Bard. A Pindaric Ode|I. 3. lines 39-40]].",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 11,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Thomas Gray"
+                      }
+                    },
+                    {
+                      "start": 13,
+                      "end": 21,
+                      "span": "link",
+                      "target": {
+                        "site": "wikipedia",
+                        "lang": "en",
+                        "title": "The Bard (poem)"
+                      }
+                    },
+                    {
+                      "start": 13,
+                      "end": 21,
+                      "span": "italic"
+                    },
+                    {
+                      "start": 30,
+                      "end": 47,
+                      "span": "link",
+                      "target": {
+                        "site": "wikisource",
+                        "lang": "en",
+                        "title": "The Bard. A Pindaric Ode"
+                      }
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          },
+          {
+            "block": "quote",
+            "text": {
+              "text": "Someone has a great fire in his soul and nobody ever comes to warm themselves at it.",
+              "wikitext": " Someone has a great fire in his soul and nobody ever comes to [[warm]] themselves at it.",
+              "spans": [
+                {
+                  "start": 62,
+                  "end": 66,
+                  "span": "link",
+                  "target": {
+                    "site": "wikiquote",
+                    "lang": "en",
+                    "title": "warm"
+                  }
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Vincent van Gogh, Letter no. 155 (June 1880), published in the online version of \"Vincent van Gogh – The Letters; The Complete Illustrated and Annotated Edition\". Retrieved 29 July 2014.",
+                  "wikitext": " [[Vincent van Gogh]], Letter no. 155 (June 1880), published in the online version of [http://www.vangoghletters.org/vg/letters/let155/letter.html \"Vincent van Gogh – The Letters; The Complete Illustrated and Annotated Edition\"]. Retrieved 29 July 2014.",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 16,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Vincent van Gogh"
+                      }
+                    },
+                    {
+                      "start": 81,
+                      "end": 163,
+                      "span": "external_link",
+                      "url": "http://www.vangoghletters.org/vg/letters/let155/letter.html"
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          },
+          {
+            "block": "quote",
+            "text": {
+              "text": "It is stern work, it is perilous work, to thrust your hand in the sun \n And pull out a spark of immortal flame to warm the hearts of men.",
+              "wikitext": " It is stern work, it is perilous work, to thrust your hand in the [[sun]] <br> And pull out a spark of immortal flame to warm the hearts of men.",
+              "spans": [
+                {
+                  "start": 66,
+                  "end": 69,
+                  "span": "link",
+                  "target": {
+                    "site": "wikiquote",
+                    "lang": "en",
+                    "title": "sun"
+                  }
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Joyce Kilmer in \"The Proud Poet\" in Main Street and Other Poems (1917).",
+                  "wikitext": " [[Joyce Kilmer]] in \"The Proud Poet\" in ''Main Street and Other Poems'' (1917).",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 12,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Joyce Kilmer"
+                      }
+                    },
+                    {
+                      "start": 36,
+                      "end": 63,
+                      "span": "italic"
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          },
+          {
+            "block": "quote",
+            "text": {
+              "text": "The last, best fruit that comes to perfection, even in the kindliest soul, is tenderness toward the hard; forbearance toward the unforbearing; warmth of heart toward the cold; and philanthropy toward the misanthropic.",
+              "wikitext": " The last, best fruit that comes to perfection, even in the kindliest soul, is tenderness toward the hard; forbearance toward the unforbearing; warmth of heart toward the cold; and philanthropy toward the misanthropic."
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Jean Paul, as reported in Josiah Hotchkiss Gilbert, Dictionary of Burning Words of Brilliant Writers (1895), p. 105.",
+                  "wikitext": " [[Jean Paul]], as reported in [[w:Author:Josiah Hotchkiss Gilbert|Josiah Hotchkiss Gilbert]], ''[https://archive.org/details/dictionaryburni00gilbgoog Dictionary of Burning Words of Brilliant Writers]'' (1895), p. 105.",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 9,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Jean Paul"
+                      }
+                    },
+                    {
+                      "start": 26,
+                      "end": 50,
+                      "span": "link",
+                      "target": {
+                        "site": "wikipedia",
+                        "lang": "en",
+                        "title": "Author:Josiah Hotchkiss Gilbert"
+                      }
+                    },
+                    {
+                      "start": 52,
+                      "end": 100,
+                      "span": "external_link",
+                      "url": "https://archive.org/details/dictionaryburni00gilbgoog"
+                    },
+                    {
+                      "start": 52,
+                      "end": 100,
+                      "span": "italic"
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          },
+          {
+            "block": "quote",
+            "text": {
+              "text": "Hold somebody's hand and feel its warmth. Gram per gram, it converts 10 000 times more energy per second than the sun. You find this hard to believe? Here are the numbers: an average human weighs 70 kilograms and consumes about 12 600 kilojoules/day; that makes about 2 millijoules/gram.second, or 2 milliwatts/gram. For the sun it's a miserable 0.2 microjoules/gram.second. Some bacteria, such as the soil bacterium \"Azotobacter\" convert as much as 10 joules/gram.second, outperforming the sun by a factor 50 million. I am warm because inside each of my body cells there are dozens, hundreds or even thousands of mitochondria that burn the food I eat.",
+              "wikitext": " Hold somebody's hand and feel its warmth. Gram per gram, it converts 10 000 times more energy per second than the sun. You find this hard to believe? Here are the numbers: an average human weighs 70 kilograms and consumes about 12 600 kilojoules/day; that makes about 2 millijoules/gram.second, or 2 milliwatts/gram. For the sun it's a miserable 0.2 microjoules/gram.second. Some bacteria, such as the soil bacterium \"Azotobacter\" convert as much as 10 joules/gram.second, outperforming the sun by a factor 50 million. I am warm because inside each of my body cells there are dozens, hundreds or even thousands of [[w:mitochondria|mitochondria]] that burn the food I eat.",
+              "spans": [
+                {
+                  "start": 614,
+                  "end": 626,
+                  "span": "link",
+                  "target": {
+                    "site": "wikipedia",
+                    "lang": "en",
+                    "title": "mitochondria"
+                  }
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Gottfried Schatz, \"The tragic matter\", Jeff's View on Science and Scientists (2006), p. 43,  ISBN 978-0-444-52133-0, ISBN 0-444-52133-X",
+                  "wikitext": " [[Gottfried Schatz]], \"The tragic matter\", ''Jeff's View on Science and Scientists'' (2006), p. 43, <small> {{ISBN|978-0-444-52133-0}}, {{ISBN|0-444-52133-X}} </small>",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 16,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Gottfried Schatz"
+                      }
+                    },
+                    {
+                      "start": 39,
+                      "end": 76,
+                      "span": "italic"
+                    },
+                    {
+                      "start": 93,
+                      "end": 115,
+                      "span": "template",
+                      "name": "isbn",
+                      "params": [
+                        [
+                          "1",
+                          "978-0-444-52133-0"
+                        ]
+                      ],
+                      "wikitext": "{{ISBN|978-0-444-52133-0}}"
+                    },
+                    {
+                      "start": 117,
+                      "end": 135,
+                      "span": "template",
+                      "name": "isbn",
+                      "params": [
+                        [
+                          "1",
+                          "0-444-52133-X"
+                        ]
+                      ],
+                      "wikitext": "{{ISBN|0-444-52133-X}}"
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          },
+          {
+            "block": "quote",
+            "text": {
+              "text": "In the warm shadow of her loveliness;—\nHe kissed her with his beams.",
+              "wikitext": " In the warm shadow of her loveliness;—<br>He kissed her with his beams."
+            },
+            "annotations": [
+              {
+                "depth": 2,
+                "text": {
+                  "text": "Percy Bysshe Shelley, The Witch of Atlas, Stanza 2. As reported in Hoyt's New Cyclopedia Of Practical Quotations (1922)",
+                  "wikitext": " [[Percy Bysshe Shelley]], ''The Witch of Atlas'', Stanza 2. As reported in ''[[Wikisource:Hoyt's New Cyclopedia Of Practical Quotations (1922)|Hoyt's New Cyclopedia Of Practical Quotations]]'' (1922)",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 20,
+                      "span": "link",
+                      "target": {
+                        "site": "wikiquote",
+                        "lang": "en",
+                        "title": "Percy Bysshe Shelley"
+                      }
+                    },
+                    {
+                      "start": 22,
+                      "end": 40,
+                      "span": "italic"
+                    },
+                    {
+                      "start": 67,
+                      "end": 112,
+                      "span": "link",
+                      "target": {
+                        "site": "wikisource",
+                        "lang": "en",
+                        "title": "Hoyt's New Cyclopedia Of Practical Quotations (1922)"
+                      }
+                    },
+                    {
+                      "start": 67,
+                      "end": 112,
+                      "span": "italic"
+                    }
+                  ]
+                },
+                "kind": "citation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "See also",
+          "wikitext": "See also"
+        },
+        "role": {
+          "role": "see_also"
+        },
+        "blocks": [
+          {
+            "block": "item",
+            "text": "Fire",
+            "wikitext": " [[Fire]]",
+            "spans": [
+              {
+                "start": 0,
+                "end": 4,
+                "span": "link",
+                "target": {
+                  "site": "wikiquote",
+                  "lang": "en",
+                  "title": "Fire"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Kindness",
+            "wikitext": " [[Kindness]]",
+            "spans": [
+              {
+                "start": 0,
+                "end": 8,
+                "span": "link",
+                "target": {
+                  "site": "wikiquote",
+                  "lang": "en",
+                  "title": "Kindness"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Global warming",
+            "wikitext": " [[Global warming]]",
+            "spans": [
+              {
+                "start": 0,
+                "end": 14,
+                "span": "link",
+                "target": {
+                  "site": "wikiquote",
+                  "lang": "en",
+                  "title": "Global warming"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Excited",
+            "wikitext": " [[Excited]]",
+            "spans": [
+              {
+                "start": 0,
+                "end": 7,
+                "span": "link",
+                "target": {
+                  "site": "wikiquote",
+                  "lang": "en",
+                  "title": "Excited"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "External links",
+          "wikitext": "External links"
+        },
+        "role": {
+          "role": "external_links"
+        },
+        "blocks": [
+          {
+            "block": "template",
+            "name": "wiktionary",
+            "params": [
+              [
+                "1",
+                "warmness"
+              ]
+            ],
+            "wikitext": "{{Wiktionary|warmness}}"
+          }
+        ]
+      }
+    ],
+    "parse": {
+      "bytes": 2629,
+      "error_nodes": 0,
+      "source_lines": 23,
+      "unassigned_lines": 0
+    }
+  },
+  "quotes": [
+    {
+      "id": "5096d09c92c04b8b",
+      "content_hash": "2f6cfef4d0a26d3a",
+      "wiki_language": "en",
+      "page_title": "Warmness",
+      "page_id": 204248,
+      "page_type": "theme",
+      "revision_id": 3687984,
+      "text": "Dear, as the light that visits these sad eyes; \n Dear, as the ruddy drops that warm my heart.",
+      "wikitext": " Dear, as the light that visits these sad eyes; <br /> Dear, as the ruddy drops that warm my heart.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Thomas Gray",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Thomas Gray",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Warmness",
+          "kind": "topic",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Warmness",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Thomas Gray]], ''[[w:The Bard (poem)|The Bard]]'' (1757), [[s:The Bard. A Pindaric Ode|I. 3. lines 39-40]].",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Thomas Gray]], ''[[w:The Bard (poem)|The Bard]]'' (1757), [[s:The Bard. A Pindaric Ode|I. 3. lines 39-40]]."
+          }
+        ],
+        "work_title": "The Bard",
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": "wikisource",
+        "work_link_title": "The Bard. A Pindaric Ode",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "1757",
+        "date_end_iso": null,
+        "date_precision": "year",
+        "date_raw": "1757",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": "lines 39-40",
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quote"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Thomas Gray, The Bard (1757), I. 3. lines 39-40.",
+          "wikitext": "[[Thomas Gray]], ''[[w:The Bard (poem)|The Bard]]'' (1757), [[s:The Bard. A Pindaric Ode|I. 3. lines 39-40]]."
+        }
+      ],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "f0e7a811a403fc09",
+      "content_hash": "f5ea9abf60e9f2cc",
+      "wiki_language": "en",
+      "page_title": "Warmness",
+      "page_id": 204248,
+      "page_type": "theme",
+      "revision_id": 3687984,
+      "text": "Someone has a great fire in his soul and nobody ever comes to warm themselves at it.",
+      "wikitext": " Someone has a great fire in his soul and nobody ever comes to [[warm]] themselves at it.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Vincent van Gogh",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Vincent van Gogh",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Warmness",
+          "kind": "topic",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Warmness",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Vincent van Gogh]], Letter no. 155 (June 1880), published in the online version of [http://www.vangoghletters.org/vg/letters/let155/letter.html \"Vincent van Gogh – The Letters; The Complete Illustrated and Annotated Edition\"]. Retrieved 29 July 2014.",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Vincent van Gogh]], Letter no. 155 (June 1880), published in the online version of [http://www.vangoghletters.org/vg/letters/let155/letter.html \"Vincent van Gogh – The Letters; The Complete Illustrated and Annotated Edition\"]. Retrieved 29 July 2014."
+          }
+        ],
+        "work_title": null,
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "1880-06",
+        "date_end_iso": null,
+        "date_precision": "month",
+        "date_raw": "June 1880",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": "no. 155",
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": "http://www.vangoghletters.org/vg/letters/let155/letter.html",
+        "occasion": "letter",
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quote"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Vincent van Gogh, Letter no. 155 (June 1880), published in the online version of \"Vincent van Gogh – The Letters; The Complete Illustrated and Annotated Edition\". Retrieved 29 July 2014.",
+          "wikitext": "[[Vincent van Gogh]], Letter no. 155 (June 1880), published in the online version of [http://www.vangoghletters.org/vg/letters/let155/letter.html \"Vincent van Gogh – The Letters; The Complete Illustrated and Annotated Edition\"]. Retrieved 29 July 2014."
+        }
+      ],
+      "translations": [],
+      "links": [
+        {
+          "site": "wikiquote",
+          "lang": "en",
+          "title": "warm",
+          "fragment": null
+        }
+      ],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "164840c3bedb771b",
+      "content_hash": "7c649b3446e18458",
+      "wiki_language": "en",
+      "page_title": "Warmness",
+      "page_id": 204248,
+      "page_type": "theme",
+      "revision_id": 3687984,
+      "text": "It is stern work, it is perilous work, to thrust your hand in the sun \n And pull out a spark of immortal flame to warm the hearts of men.",
+      "wikitext": " It is stern work, it is perilous work, to thrust your hand in the [[sun]] <br> And pull out a spark of immortal flame to warm the hearts of men.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Joyce Kilmer",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Joyce Kilmer",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Warmness",
+          "kind": "topic",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Warmness",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Joyce Kilmer]] in \"The Proud Poet\" in ''Main Street and Other Poems'' (1917).",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Joyce Kilmer]] in \"The Proud Poet\" in ''Main Street and Other Poems'' (1917)."
+          }
+        ],
+        "work_title": "Main Street and Other Poems",
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "1917",
+        "date_end_iso": null,
+        "date_precision": "year",
+        "date_raw": "1917",
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quote"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Joyce Kilmer in \"The Proud Poet\" in Main Street and Other Poems (1917).",
+          "wikitext": "[[Joyce Kilmer]] in \"The Proud Poet\" in ''Main Street and Other Poems'' (1917)."
+        }
+      ],
+      "translations": [],
+      "links": [
+        {
+          "site": "wikiquote",
+          "lang": "en",
+          "title": "sun",
+          "fragment": null
+        }
+      ],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "93e18b8d34a409b8",
+      "content_hash": "9f9517dac6d49e1f",
+      "wiki_language": "en",
+      "page_title": "Warmness",
+      "page_id": 204248,
+      "page_type": "theme",
+      "revision_id": 3687984,
+      "text": "The last, best fruit that comes to perfection, even in the kindliest soul, is tenderness toward the hard; forbearance toward the unforbearing; warmth of heart toward the cold; and philanthropy toward the misanthropic.",
+      "wikitext": " The last, best fruit that comes to perfection, even in the kindliest soul, is tenderness toward the hard; forbearance toward the unforbearing; warmth of heart toward the cold; and philanthropy toward the misanthropic.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Jean Paul",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Jean Paul",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Warmness",
+          "kind": "topic",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Warmness",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Jean Paul]], as reported in [[w:Author:Josiah Hotchkiss Gilbert|Josiah Hotchkiss Gilbert]], ''[https://archive.org/details/dictionaryburni00gilbgoog Dictionary of Burning Words of Brilliant Writers]'' (1895), p. 105.",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Jean Paul]], as reported in [[w:Author:Josiah Hotchkiss Gilbert|Josiah Hotchkiss Gilbert]], ''[https://archive.org/details/dictionaryburni00gilbgoog Dictionary of Burning Words of Brilliant Writers]'' (1895), p. 105."
+          }
+        ],
+        "work_title": "Dictionary of Burning Words of Brilliant Writers",
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": "p. 105",
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": "https://archive.org/details/dictionaryburni00gilbgoog",
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quote"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Jean Paul, as reported in Josiah Hotchkiss Gilbert, Dictionary of Burning Words of Brilliant Writers (1895), p. 105.",
+          "wikitext": "[[Jean Paul]], as reported in [[w:Author:Josiah Hotchkiss Gilbert|Josiah Hotchkiss Gilbert]], ''[https://archive.org/details/dictionaryburni00gilbgoog Dictionary of Burning Words of Brilliant Writers]'' (1895), p. 105."
+        }
+      ],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "a7e4c490e2f94967",
+      "content_hash": "4c20887d432e0b17",
+      "wiki_language": "en",
+      "page_title": "Warmness",
+      "page_id": 204248,
+      "page_type": "theme",
+      "revision_id": 3687984,
+      "text": "Hold somebody's hand and feel its warmth. Gram per gram, it converts 10 000 times more energy per second than the sun. You find this hard to believe? Here are the numbers: an average human weighs 70 kilograms and consumes about 12 600 kilojoules/day; that makes about 2 millijoules/gram.second, or 2 milliwatts/gram. For the sun it's a miserable 0.2 microjoules/gram.second. Some bacteria, such as the soil bacterium \"Azotobacter\" convert as much as 10 joules/gram.second, outperforming the sun by a factor 50 million. I am warm because inside each of my body cells there are dozens, hundreds or even thousands of mitochondria that burn the food I eat.",
+      "wikitext": " Hold somebody's hand and feel its warmth. Gram per gram, it converts 10 000 times more energy per second than the sun. You find this hard to believe? Here are the numbers: an average human weighs 70 kilograms and consumes about 12 600 kilojoules/day; that makes about 2 millijoules/gram.second, or 2 milliwatts/gram. For the sun it's a miserable 0.2 microjoules/gram.second. Some bacteria, such as the soil bacterium \"Azotobacter\" convert as much as 10 joules/gram.second, outperforming the sun by a factor 50 million. I am warm because inside each of my body cells there are dozens, hundreds or even thousands of [[w:mitochondria|mitochondria]] that burn the food I eat.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Gottfried Schatz",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Gottfried Schatz",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Warmness",
+          "kind": "topic",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Warmness",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Gottfried Schatz]], \"The tragic matter\", ''Jeff's View on Science and Scientists'' (2006), p. 43, <small> {{ISBN|978-0-444-52133-0}}, {{ISBN|0-444-52133-X}} </small>",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Gottfried Schatz]], \"The tragic matter\", ''Jeff's View on Science and Scientists'' (2006), p. 43, <small> {{ISBN|978-0-444-52133-0}}, {{ISBN|0-444-52133-X}} </small>"
+          }
+        ],
+        "work_title": "Jeff's View on Science and Scientists",
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": null,
+        "work_link_title": null,
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": "2006",
+        "date_end_iso": null,
+        "date_precision": "year",
+        "date_raw": "2006",
+        "locator_page": "p. 43",
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": "978-0-444-52133-0",
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quote"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Gottfried Schatz, \"The tragic matter\", Jeff's View on Science and Scientists (2006), p. 43,  ISBN 978-0-444-52133-0, ISBN 0-444-52133-X",
+          "wikitext": "[[Gottfried Schatz]], \"The tragic matter\", ''Jeff's View on Science and Scientists'' (2006), p. 43, <small> {{ISBN|978-0-444-52133-0}}, {{ISBN|0-444-52133-X}} </small>"
+        }
+      ],
+      "translations": [],
+      "links": [
+        {
+          "site": "wikipedia",
+          "lang": "en",
+          "title": "mitochondria",
+          "fragment": null
+        }
+      ],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "5de15444ddab19cd",
+      "content_hash": "44e8ffdbd3ffb485",
+      "wiki_language": "en",
+      "page_title": "Warmness",
+      "page_id": 204248,
+      "page_type": "theme",
+      "revision_id": 3687984,
+      "text": "In the warm shadow of her loveliness;—\nHe kissed her with his beams.",
+      "wikitext": " In the warm shadow of her loveliness;—<br>He kissed her with his beams.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": {
+        "name": "Percy Bysshe Shelley",
+        "kind": "person",
+        "link_site": "wikiquote",
+        "link_lang": "en",
+        "link_title": "Percy Bysshe Shelley",
+        "played_by": null
+      },
+      "about": [
+        {
+          "name": "Warmness",
+          "kind": "topic",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "Warmness",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "[[Percy Bysshe Shelley]], ''The Witch of Atlas'', Stanza 2. As reported in ''[[Wikisource:Hoyt's New Cyclopedia Of Practical Quotations (1922)|Hoyt's New Cyclopedia Of Practical Quotations]]'' (1922)",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "annotation",
+            "level": null,
+            "hint": null,
+            "raw": "[[Percy Bysshe Shelley]], ''The Witch of Atlas'', Stanza 2. As reported in ''[[Wikisource:Hoyt's New Cyclopedia Of Practical Quotations (1922)|Hoyt's New Cyclopedia Of Practical Quotations]]'' (1922)"
+          }
+        ],
+        "work_title": "The Witch of Atlas",
+        "work_type": null,
+        "work_year": null,
+        "work_link_site": "wikisource",
+        "work_link_title": "Hoyt's New Cyclopedia Of Practical Quotations (1922)",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Quote"
+      ],
+      "annotations": [
+        {
+          "kind": "citation",
+          "text": "Percy Bysshe Shelley, The Witch of Atlas, Stanza 2. As reported in Hoyt's New Cyclopedia Of Practical Quotations (1922)",
+          "wikitext": "[[Percy Bysshe Shelley]], ''The Witch of Atlas'', Stanza 2. As reported in ''[[Wikisource:Hoyt's New Cyclopedia Of Practical Quotations (1922)|Hoyt's New Cyclopedia Of Practical Quotations]]'' (1922)"
+        }
+      ],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "annotation",
+        "source_from": "annotation",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    }
+  ]
+}

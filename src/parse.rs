@@ -279,7 +279,7 @@ impl<'a> PageBuilder<'a> {
                     annotations: Vec::new(),
                 });
             } else if let Some(item) = current.as_mut() {
-                let kind = annotation_kind(&text.text);
+                let kind = annotation_kind(&text);
                 item.annotations.push(Annotation { depth, text, kind });
             }
         }
@@ -455,19 +455,32 @@ fn strip_speaker(mut text: RichText) -> RichText {
 }
 
 /// A first guess at what an annotation is for. Layer 2 refines it.
-fn annotation_kind(text: &str) -> AnnotationKind {
-    let lower = text.trim().to_lowercase();
-    if lower.starts_with("translation") || lower.starts_with("translated") {
-        return AnnotationKind::Translation;
+fn annotation_kind(text: &RichText) -> AnnotationKind {
+    let lower = text.text.trim().to_lowercase();
+    // A proverb page gives the words in the original script, then a
+    // transliteration and a meaning, each on its own line.
+    for label in ["translation", "translated", "transliteration", "meaning", "literally"] {
+        if lower.starts_with(label) {
+            return AnnotationKind::Translation;
+        }
     }
     if lower.starts_with("compare") || lower.starts_with("variant") || lower.starts_with("see also")
     {
         return AnnotationKind::CrossRef;
     }
-    if lower.is_empty() {
-        return AnnotationKind::Note;
+    if !lower.is_empty() {
+        return AnnotationKind::Citation;
     }
-    AnnotationKind::Citation
+    // A line that is only a {{cite …}} call or a link renders as no text at
+    // all, but it is still the citation.
+    let has_citation = text.spans.iter().any(|span| match &span.kind {
+        SpanKind::Template(template) => {
+            template.name.starts_with("cite") || template.name == "citation"
+        }
+        SpanKind::ExternalLink { url } => !url.is_empty(),
+        _ => false,
+    });
+    if has_citation { AnnotationKind::Citation } else { AnnotationKind::Note }
 }
 
 fn heading_of(section: Node) -> Option<Node> {

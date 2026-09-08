@@ -1,0 +1,1418 @@
+{
+  "document": {
+    "wiki_language": "en",
+    "title": "The Half of It",
+    "page_id": 313245,
+    "revision_id": 3989549,
+    "timestamp": "2026-08-16T19:14:59Z",
+    "page_type": "film",
+    "page_type_evidence": [
+      "category: 2020 american films"
+    ],
+    "categories": [
+      "2020 American films",
+      "Independent films",
+      "Coming-of-age comedy-drama films",
+      "Coming-of-age films",
+      "High school films",
+      "Teen comedy-drama films",
+      "Gay-related films",
+      "Films about interracial romance",
+      "Netflix original films",
+      "Films directed by Alice Wu"
+    ],
+    "templates": [
+      {
+        "name": "italic title",
+        "wikitext": "{{italic title}}"
+      }
+    ],
+    "lead": [
+      {
+        "block": "template",
+        "name": "italic title",
+        "wikitext": "{{italic title}}"
+      },
+      {
+        "block": "paragraph",
+        "text": "The Half of It is a 2020 coming-of-age comedy-drama film about a shy, smart Chinese-American teen named Ellie Chu helps a sweet, inarticulate jock named Paul Munsky write love letters to Aster Flores. Ellie secretly falls in love with Aster too, leading to an unexpected friendship and a journey of self-discovery.",
+        "wikitext": "'''''[[w:The Half of It|The Half of It]]''''' is a [[w:2020 in film|2020]] coming-of-age comedy-drama film about a shy, smart Chinese-American teen named Ellie Chu helps a sweet, inarticulate jock named Paul Munsky write love letters to Aster Flores. Ellie secretly falls in love with Aster too, leading to an unexpected friendship and a journey of self-discovery.",
+        "spans": [
+          {
+            "start": 0,
+            "end": 14,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "The Half of It"
+            }
+          },
+          {
+            "start": 0,
+            "end": 14,
+            "span": "bold_italic"
+          },
+          {
+            "start": 20,
+            "end": 24,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "2020 in film"
+            }
+          }
+        ]
+      },
+      {
+        "block": "exchange",
+        "turns": [
+          {
+            "text": {
+              "text": "Written and Directed by Alice Wu.",
+              "wikitext": "''Written and Directed by [[w:Alice Wu|Alice Wu]].''",
+              "spans": [
+                {
+                  "start": 24,
+                  "end": 32,
+                  "span": "link",
+                  "target": {
+                    "site": "wikipedia",
+                    "lang": "en",
+                    "title": "Alice Wu"
+                  }
+                },
+                {
+                  "start": 0,
+                  "end": 33,
+                  "span": "italic"
+                }
+              ]
+            },
+            "is_stage_direction": true
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "level": 2,
+        "heading": {
+          "text": "Dialogue",
+          "wikitext": "Dialogue"
+        },
+        "role": {
+          "role": "dialogue"
+        },
+        "blocks": [
+          {
+            "block": "exchange",
+            "turns": [
+              {
+                "speaker": "Ellie Chu",
+                "text": {
+                  "text": "\"I never really thought about the oppression of fitting in before. The good thing about being different is that no one expects you to be like them.\"",
+                  "wikitext": "'''Ellie Chu''': \"I never really thought about the oppression of fitting in before. The good thing about being different is that no one expects you to be like them.\""
+                },
+                "is_stage_direction": false
+              }
+            ]
+          },
+          {
+            "block": "rule"
+          },
+          {
+            "block": "exchange",
+            "turns": [
+              {
+                "speaker": "Ellie Chu",
+                "text": {
+                  "text": "Aster Flores thinks you're into abstract art and repressed British literature.",
+                  "wikitext": "'''Ellie Chu''': Aster Flores thinks you're into abstract art and repressed British literature."
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Paul Munsky",
+                "text": {
+                  "text": "Yeah.",
+                  "wikitext": "'''Paul Munsky''': Yeah."
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Ellie Chu",
+                "text": {
+                  "text": "None of that is you.",
+                  "wikitext": "'''Ellie Chu''': None of that is you."
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Paul Munsky",
+                "text": {
+                  "text": "It could be. I started reading that Remains Of The Day book.",
+                  "wikitext": "'''Paul Munsky''': It could be. I started reading that Remains Of The Day book."
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Ellie Chu",
+                "text": {
+                  "text": "Really?",
+                  "wikitext": "'''Ellie Chu''': Really?"
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Paul Munsky",
+                "text": {
+                  "text": "Yeah. I fell asleep a few times, but I'm still reading it. That's gotta count for something.",
+                  "wikitext": "'''Paul Munsky''': Yeah. I fell asleep a few times, but I'm still reading it. That's gotta count for something."
+                },
+                "is_stage_direction": false
+              }
+            ]
+          },
+          {
+            "block": "rule"
+          },
+          {
+            "block": "exchange",
+            "turns": [
+              {
+                "speaker": "Paul Munsky",
+                "text": {
+                  "text": "What else could I like about her?",
+                  "wikitext": "'''Paul Munsky''': What else could I like about her?"
+                },
+                "is_stage_direction": false
+              }
+            ]
+          },
+          {
+            "block": "paragraph",
+            "text": "Ellie Chu: I don't know. How her eyes look right into yours. How... she twirls her hair when she's reading. How... her laugh... busts out like she can't help herself and she stops being so perfect for just a few moments.",
+            "wikitext": "Ellie Chu: I don't know. How her eyes look right into yours. How... she twirls her hair when she's reading. How... her laugh... busts out like she can't help herself and she stops being so perfect for just a few moments."
+          },
+          {
+            "block": "rule"
+          },
+          {
+            "block": "exchange",
+            "turns": [
+              {
+                "speaker": "Paul Munsky",
+                "text": {
+                  "text": "Go to the dressing room. I-I'll toss you some things.",
+                  "wikitext": "'''Paul Munsky''': Go to the dressing room. I-I'll toss you some things."
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Ellie Chu",
+                "text": {
+                  "text": "But you're a dude.",
+                  "wikitext": "'''Ellie Chu''': But you're a dude."
+                },
+                "is_stage_direction": false
+              },
+              {
+                "speaker": "Paul Munsky",
+                "text": {
+                  "text": "I have a sister.",
+                  "wikitext": "'''Paul Munsky''': I have a sister."
+                },
+                "is_stage_direction": false
+              }
+            ]
+          },
+          {
+            "block": "rule"
+          },
+          {
+            "block": "exchange",
+            "turns": [
+              {
+                "speaker": "Ellie Chu",
+                "text": {
+                  "text": "Gravity is matter's response to loneliness.",
+                  "wikitext": "'''Ellie Chu''': Gravity is matter's response to loneliness."
+                },
+                "is_stage_direction": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "Cast",
+          "wikitext": "Cast"
+        },
+        "role": {
+          "role": "cast"
+        },
+        "blocks": [
+          {
+            "block": "item",
+            "text": "Leah Lewis as Ellie Chu",
+            "wikitext": " [[w:Leah Lewis|Leah Lewis]] as Ellie Chu",
+            "spans": [
+              {
+                "start": 0,
+                "end": 10,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Leah Lewis"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Daniel Diemer as Paul Munsky",
+            "wikitext": " [[w:Daniel Diemer|Daniel Diemer]] as Paul Munsky",
+            "spans": [
+              {
+                "start": 0,
+                "end": 13,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Daniel Diemer"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Alexxis Lemire as Aster Flores",
+            "wikitext": " [[w:Alexxis Lemire|Alexxis Lemire]] as Aster Flores",
+            "spans": [
+              {
+                "start": 0,
+                "end": 14,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Alexxis Lemire"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Collin Chou as Edwin Chu",
+            "wikitext": " [[w:Collin Chou|Collin Chou]] as Edwin Chu",
+            "spans": [
+              {
+                "start": 0,
+                "end": 11,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Collin Chou"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Wolfgang Novogratz as Trig Carson",
+            "wikitext": " [[w:Wolfgang Novogratz|Wolfgang Novogratz]] as Trig Carson",
+            "spans": [
+              {
+                "start": 0,
+                "end": 18,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Wolfgang Novogratz"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Becky Ann Baker as Mrs. Geselschap",
+            "wikitext": " [[w:Becky Ann Baker|Becky Ann Baker]] as Mrs. Geselschap",
+            "spans": [
+              {
+                "start": 0,
+                "end": 15,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Becky Ann Baker"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Catherine Curtin as Colleen Munsky",
+            "wikitext": " [[w:Catherine Curtin|Catherine Curtin]] as Colleen Munsky",
+            "spans": [
+              {
+                "start": 0,
+                "end": 16,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Catherine Curtin"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "Enrique Murciano as Deacon Flores",
+            "wikitext": " [[w:Enrique Murciano|Enrique Murciano]] as Deacon Flores",
+            "spans": [
+              {
+                "start": 0,
+                "end": 16,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Enrique Murciano"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "heading": {
+          "text": "External links",
+          "wikitext": "External links"
+        },
+        "role": {
+          "role": "external_links"
+        },
+        "blocks": [
+          {
+            "block": "template",
+            "name": "wikipedia",
+            "wikitext": "{{wikipedia}}"
+          }
+        ]
+      }
+    ],
+    "parse": {
+      "bytes": 2389,
+      "error_nodes": 0,
+      "source_lines": 42,
+      "unassigned_lines": 0
+    }
+  },
+  "quotes": [
+    {
+      "id": "827d5091f2e06c2e",
+      "content_hash": "f136546288e31784",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "\"I never really thought about the oppression of fitting in before. The good thing about being different is that no one expects you to be like them.\"",
+      "wikitext": "'''Ellie Chu''': \"I never really thought about the oppression of fitting in before. The good thing about being different is that no one expects you to be like them.\"",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Ellie Chu",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Leah Lewis"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "34da665a20b20a15",
+      "content_hash": "55db81b51388e3f2",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Ellie Chu: Aster Flores thinks you're into abstract art and repressed British literature.\nPaul Munsky: Yeah.\nEllie Chu: None of that is you.\nPaul Munsky: It could be. I started reading that Remains Of The Day book.\nEllie Chu: Really?\nPaul Munsky: Yeah. I fell asleep a few times, but I'm still reading it. That's gotta count for something.",
+      "wikitext": "'''Ellie Chu''': Aster Flores thinks you're into abstract art and repressed British literature.\n'''Paul Munsky''': Yeah.\n'''Ellie Chu''': None of that is you.\n'''Paul Munsky''': It could be. I started reading that Remains Of The Day book.\n'''Ellie Chu''': Really?\n'''Paul Munsky''': Yeah. I fell asleep a few times, but I'm still reading it. That's gotta count for something.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "3983d6cee98fcd1b",
+      "content_hash": "69f3d0de3c815dfd",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Aster Flores thinks you're into abstract art and repressed British literature.",
+      "wikitext": "'''Ellie Chu''': Aster Flores thinks you're into abstract art and repressed British literature.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Ellie Chu",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Leah Lewis"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "ac78a81df25dad0c",
+      "content_hash": "7e8a619bb1cd5248",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Yeah.",
+      "wikitext": "'''Paul Munsky''': Yeah.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Paul Munsky",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Daniel Diemer"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "bcc3c90c61d2d504",
+      "content_hash": "8ae0a22301c039c7",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "None of that is you.",
+      "wikitext": "'''Ellie Chu''': None of that is you.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Ellie Chu",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Leah Lewis"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "64553ce971892a99",
+      "content_hash": "171e7ae4d1d0c128",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "It could be. I started reading that Remains Of The Day book.",
+      "wikitext": "'''Paul Munsky''': It could be. I started reading that Remains Of The Day book.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Paul Munsky",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Daniel Diemer"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "e244bb95f5f52a12",
+      "content_hash": "1d728bf4650442a1",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Really?",
+      "wikitext": "'''Ellie Chu''': Really?",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Ellie Chu",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Leah Lewis"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "ac726e4d46eac3e6",
+      "content_hash": "eef0ed4f38d2094b",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Yeah. I fell asleep a few times, but I'm still reading it. That's gotta count for something.",
+      "wikitext": "'''Paul Munsky''': Yeah. I fell asleep a few times, but I'm still reading it. That's gotta count for something.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Paul Munsky",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Daniel Diemer"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "11c0829cc6c03596",
+      "content_hash": "3035766156fcadcf",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "What else could I like about her?",
+      "wikitext": "'''Paul Munsky''': What else could I like about her?",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Paul Munsky",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Daniel Diemer"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "3551c326778c2fab",
+      "content_hash": "34f073a39654d7f5",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Paul Munsky: Go to the dressing room. I-I'll toss you some things.\nEllie Chu: But you're a dude.\nPaul Munsky: I have a sister.",
+      "wikitext": "'''Paul Munsky''': Go to the dressing room. I-I'll toss you some things.\n'''Ellie Chu''': But you're a dude.\n'''Paul Munsky''': I have a sister.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "780abfa533820591",
+      "content_hash": "e4deea0d2f088d98",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Go to the dressing room. I-I'll toss you some things.",
+      "wikitext": "'''Paul Munsky''': Go to the dressing room. I-I'll toss you some things.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Paul Munsky",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Daniel Diemer"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "2d7bd69a5395e370",
+      "content_hash": "104597df60dc9664",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "But you're a dude.",
+      "wikitext": "'''Ellie Chu''': But you're a dude.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Ellie Chu",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Leah Lewis"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "a28474370668677d",
+      "content_hash": "760dffb07d994461",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "I have a sister.",
+      "wikitext": "'''Paul Munsky''': I have a sister.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Paul Munsky",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Daniel Diemer"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "1cdd71a988ceacf1",
+      "content_hash": "f0f510f11a1ddd6d",
+      "wiki_language": "en",
+      "page_title": "The Half of It",
+      "page_id": 313245,
+      "page_type": "film",
+      "revision_id": 3989549,
+      "text": "Gravity is matter's response to loneliness.",
+      "wikitext": "'''Ellie Chu''': Gravity is matter's response to loneliness.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "dialogue_turn",
+      "status": "sourced",
+      "speaker": {
+        "name": "Ellie Chu",
+        "kind": "character",
+        "link_site": null,
+        "link_lang": null,
+        "link_title": null,
+        "played_by": "Leah Lewis"
+      },
+      "about": [],
+      "source": {
+        "raw": "The Half of It",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Half of It"
+          }
+        ],
+        "work_title": "The Half of It",
+        "work_type": "film",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Half of It",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [
+        "Dialogue"
+      ],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": "dialogue_marker",
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    }
+  ]
+}

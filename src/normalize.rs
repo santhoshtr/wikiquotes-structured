@@ -25,6 +25,10 @@ pub fn quotes(document: &Document) -> Vec<Quote> {
         out: Vec::new(),
     };
     let root = Context { path: Vec::new(), parts: Vec::new(), role: SectionRole::Quotes };
+    // Many pages, short ones above all, put their quotes before any heading.
+    for (index, block) in document.lead.iter().enumerate() {
+        builder.block(block, &root, index);
+    }
     for section in &document.sections {
         builder.section(section, &root);
     }

@@ -1,0 +1,316 @@
+{
+  "document": {
+    "wiki_language": "en",
+    "title": "The Little Engine That Could",
+    "page_id": 273333,
+    "revision_id": 3509893,
+    "timestamp": "2024-05-02T14:39:40Z",
+    "page_type": "literary_work",
+    "page_type_evidence": [
+      "category: children's books"
+    ],
+    "categories": [
+      "Children's books"
+    ],
+    "templates": [
+      {
+        "name": "italic title",
+        "wikitext": "{{italic title}}"
+      }
+    ],
+    "lead": [
+      {
+        "block": "template",
+        "name": "italic title",
+        "wikitext": "{{italic title}}"
+      },
+      {
+        "block": "media",
+        "file": "File:The Pony Engine, by Mary C. Jacobs (1910).png",
+        "caption": {
+          "text": "The Pony Engine, by Mary C. Jacobs (1910)",
+          "wikitext": "The Pony Engine, by Mary C. Jacobs (1910)"
+        }
+      },
+      {
+        "block": "paragraph",
+        "text": "The Little Engine That Could is an American folktale (existing in the form of several illustrated children's books and films) that became widely known in the United States after publication in 1930 by Platt & Munk. Earlier versions of the story date back to 1902, including one published in 1906 as \"Story of the Engine That Thought It Could.\"",
+        "wikitext": "'''''[[w:The Little Engine That Could|The Little Engine That Could]]''''' is an American folktale (existing in the form of several illustrated children's books and films) that became widely known in the United States after publication in 1930 by [[w:Platt & Munk|Platt & Munk]]. Earlier versions of the story date back to 1902, including one published in 1906 as \"[[wikisource:Story of the Engine that Thought It Could|Story of the Engine That Thought It Could]].\"",
+        "spans": [
+          {
+            "start": 0,
+            "end": 28,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "The Little Engine That Could"
+            }
+          },
+          {
+            "start": 0,
+            "end": 28,
+            "span": "bold_italic"
+          },
+          {
+            "start": 201,
+            "end": 213,
+            "span": "link",
+            "target": {
+              "site": "wikipedia",
+              "lang": "en",
+              "title": "Platt & Munk"
+            }
+          },
+          {
+            "start": 300,
+            "end": 341,
+            "span": "link",
+            "target": {
+              "site": "wikisource",
+              "lang": "en",
+              "title": "Story of the Engine that Thought It Could"
+            }
+          }
+        ]
+      },
+      {
+        "block": "quote",
+        "text": {
+          "text": "I think I can. I think I can, I think I can.",
+          "wikitext": " I think I can. I think I can, I think I can."
+        }
+      },
+      {
+        "block": "quote",
+        "text": {
+          "text": "I thought I could. I thought I could, I thought I could.",
+          "wikitext": " I thought I could. I thought I could, I thought I could."
+        }
+      }
+    ],
+    "sections": [
+      {
+        "level": 2,
+        "heading": {
+          "text": "External links",
+          "wikitext": "External links"
+        },
+        "role": {
+          "role": "external_links"
+        },
+        "blocks": [
+          {
+            "block": "template",
+            "name": "wikipedia",
+            "wikitext": "{{wikipedia}}"
+          },
+          {
+            "block": "template",
+            "name": "wikisource",
+            "params": [
+              [
+                "1",
+                "Story of the Engine that Thought It Could"
+              ]
+            ],
+            "wikitext": "{{wikisource|Story of the Engine that Thought It Could}}"
+          },
+          {
+            "block": "item",
+            "text": "\"The Pony Engine' (1910) by Mary C. Jacobs",
+            "wikitext": " [https://babel.hathitrust.org/cgi/pt?id=osu.32435057727273&view=1up&seq=47 \"The Pony Engine'] (1910) by [[w:Mary C. Jacobs|Mary C. Jacobs]]",
+            "spans": [
+              {
+                "start": 0,
+                "end": 17,
+                "span": "external_link",
+                "url": "https://babel.hathitrust.org/cgi/pt?id=osu.32435057727273&view=1up&seq=47"
+              },
+              {
+                "start": 28,
+                "end": 42,
+                "span": "link",
+                "target": {
+                  "site": "wikipedia",
+                  "lang": "en",
+                  "title": "Mary C. Jacobs"
+                }
+              }
+            ]
+          },
+          {
+            "block": "item",
+            "text": "\"Staying on track? Life, societal values, and children’s books about trains\" (January 21, 2024), Sun Journal",
+            "wikitext": " [https://www.sunjournal.com/2024/01/21/ellen-chances-staying-on-track-life-societal-values-and-childrens-books-about-trains/ \"Staying on track? Life, societal values, and children’s books about trains\"] (January 21, 2024), ''Sun Journal'' ",
+            "spans": [
+              {
+                "start": 0,
+                "end": 78,
+                "span": "external_link",
+                "url": "https://www.sunjournal.com/2024/01/21/ellen-chances-staying-on-track-life-societal-values-and-childrens-books-about-trains/"
+              },
+              {
+                "start": 99,
+                "end": 110,
+                "span": "italic"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "parse": {
+      "bytes": 1203,
+      "error_nodes": 0,
+      "source_lines": 11,
+      "unassigned_lines": 0
+    }
+  },
+  "quotes": [
+    {
+      "id": "a6d680ed2266da69",
+      "content_hash": "d21bb94bac853917",
+      "wiki_language": "en",
+      "page_title": "The Little Engine That Could",
+      "page_id": 273333,
+      "page_type": "literary_work",
+      "revision_id": 3509893,
+      "text": "I think I can. I think I can, I think I can.",
+      "wikitext": " I think I can. I think I can, I think I can.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [
+        {
+          "name": "The Little Engine That Could",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "The Little Engine That Could",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "The Little Engine That Could",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Little Engine That Could"
+          }
+        ],
+        "work_title": "The Little Engine That Could",
+        "work_type": "book",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Little Engine That Could",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    },
+    {
+      "id": "f086d2efad7f01ed",
+      "content_hash": "d490420d2073937f",
+      "wiki_language": "en",
+      "page_title": "The Little Engine That Could",
+      "page_id": 273333,
+      "page_type": "literary_work",
+      "revision_id": 3509893,
+      "text": "I thought I could. I thought I could, I thought I could.",
+      "wikitext": " I thought I could. I thought I could, I thought I could.",
+      "language": "en",
+      "language_from": "wiki_default",
+      "kind": "monologue",
+      "status": "sourced",
+      "speaker": null,
+      "about": [
+        {
+          "name": "The Little Engine That Could",
+          "kind": "work",
+          "link_site": "wikiquote",
+          "link_lang": "en",
+          "link_title": "The Little Engine That Could",
+          "played_by": null
+        }
+      ],
+      "source": {
+        "raw": "The Little Engine That Could",
+        "complete": true,
+        "parts": [
+          {
+            "origin": "page_subject",
+            "level": null,
+            "hint": null,
+            "raw": "The Little Engine That Could"
+          }
+        ],
+        "work_title": "The Little Engine That Could",
+        "work_type": "book",
+        "work_year": null,
+        "work_link_site": "wikiquote",
+        "work_link_title": "The Little Engine That Could",
+        "episode_series": null,
+        "episode_season": null,
+        "episode_number": null,
+        "episode_title": null,
+        "date_iso": null,
+        "date_end_iso": null,
+        "date_precision": null,
+        "date_raw": null,
+        "locator_page": null,
+        "locator_chapter": null,
+        "locator_part": null,
+        "locator_act_scene": null,
+        "locator_line": null,
+        "publication": null,
+        "publisher": null,
+        "isbn": null,
+        "url": null,
+        "occasion": null,
+        "cite_templates": []
+      },
+      "context_path": [],
+      "annotations": [],
+      "translations": [],
+      "links": [],
+      "provenance": {
+        "speaker_from": null,
+        "source_from": "page_subject",
+        "status_from": "citation_presence",
+        "unparsed_annotations": 0
+      }
+    }
+  ]
+}
