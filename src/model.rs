@@ -36,16 +36,24 @@ pub struct Span {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "span", rename_all = "snake_case")]
 pub enum SpanKind {
-    Link { target: PageRef },
-    ExternalLink { url: String },
+    Link {
+        target: PageRef,
+    },
+    ExternalLink {
+        url: String,
+    },
     Italic,
     Bold,
     BoldItalic,
     Template(TemplateRef),
     /// `<!-- … -->`. The comment text is not part of `RichText::text`.
-    Comment { text: String },
+    Comment {
+        text: String,
+    },
     /// `<ref>…</ref>`. The note text is not part of `RichText::text`.
-    Reference { text: String },
+    Reference {
+        text: String,
+    },
 }
 
 /// A wikilink target. The interwiki prefix says which project it points at.
@@ -82,7 +90,10 @@ pub struct TemplateRef {
 
 impl TemplateRef {
     pub fn param(&self, key: &str) -> Option<&str> {
-        self.params.iter().find(|(k, _)| k == key).map(|(_, v)| v.as_str())
+        self.params
+            .iter()
+            .find(|(k, _)| k == key)
+            .map(|(_, v)| v.as_str())
     }
 }
 
@@ -189,10 +200,21 @@ pub enum SectionRole {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "hint", rename_all = "snake_case")]
 pub enum SourceHint {
-    Work { title: String, year: Option<u16> },
-    Episode { title: Option<String>, code: Option<String> },
-    Season { number: u16 },
-    Period { from: i32, to: i32 },
+    Work {
+        title: String,
+        year: Option<u16>,
+    },
+    Episode {
+        title: Option<String>,
+        code: Option<String>,
+    },
+    Season {
+        number: u16,
+    },
+    Period {
+        from: i32,
+        to: i32,
+    },
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -208,7 +230,9 @@ pub enum Block {
     Media(Media),
     /// A template alone on a line.
     Template(TemplateRef),
-    Table { wikitext: String },
+    Table {
+        wikitext: String,
+    },
     /// `<hr>`, kept so the page layout can be rebuilt.
     Rule,
 }

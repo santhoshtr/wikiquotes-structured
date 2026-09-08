@@ -46,7 +46,7 @@ pub struct Quote {
 }
 
 /// Who said a quote, or who it is about.
-#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Agent {
     pub name: String,
     /// "person", "character", "group", "work", "topic" or "unknown".

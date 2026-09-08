@@ -27,7 +27,10 @@ impl Default for DocumentBuilder {
 
 impl DocumentBuilder {
     pub fn new() -> Self {
-        Self { parser: new_parser(), heading_parser: new_parser() }
+        Self {
+            parser: new_parser(),
+            heading_parser: new_parser(),
+        }
     }
 
     pub fn build(&mut self, page: &RawPage, wiki_language: &str) -> Document {
@@ -45,14 +48,19 @@ impl DocumentBuilder {
             interwiki: Vec::new(),
             lead: Vec::new(),
             sections: Vec::new(),
-            parse: ParseStats { bytes: page.text.len() as u32, ..ParseStats::default() },
+            parse: ParseStats {
+                bytes: page.text.len() as u32,
+                ..ParseStats::default()
+            },
         };
         if document.redirect_to.is_some() {
             return document;
         }
 
         let source = &page.text;
-        let Some(tree) = self.parser.parse(source, None) else { return document };
+        let Some(tree) = self.parser.parse(source, None) else {
+            return document;
+        };
         let root = tree.root_node();
 
         let mut page_builder = PageBuilder::new(source, &page.title, &mut self.heading_parser);
@@ -77,8 +85,12 @@ impl DocumentBuilder {
         }
 
         document.categories = page_builder.categories;
-        document.templates =
-            document.lead.iter().filter_map(block_template).cloned().collect::<Vec<_>>();
+        document.templates = document
+            .lead
+            .iter()
+            .filter_map(block_template)
+            .cloned()
+            .collect::<Vec<_>>();
         document.interwiki = interwiki_of(&document.templates, &page.title);
         (document.page_type, document.page_type_evidence) = classify::classify(&document);
         document.parse.error_nodes = count_errors(root);
@@ -110,7 +122,9 @@ struct Coverage {
 
 impl Coverage {
     fn new(source: &str) -> Self {
-        Self { lines: vec![false; source.lines().count() + 1] }
+        Self {
+            lines: vec![false; source.lines().count() + 1],
+        }
     }
 
     fn mark(&mut self, node: Node) {
@@ -124,7 +138,9 @@ impl Coverage {
         source
             .lines()
             .enumerate()
-            .filter(|(index, line)| !line.trim().is_empty() && !self.lines.get(*index).copied().unwrap_or(false))
+            .filter(|(index, line)| {
+                !line.trim().is_empty() && !self.lines.get(*index).copied().unwrap_or(false)
+            })
             .count() as u32
     }
 }
@@ -165,7 +181,14 @@ impl<'a> PageBuilder<'a> {
         let is_italic = heading.wikitext.starts_with("''");
         let source_hint = roles::source_hint(&heading.text, is_italic);
         let (blocks, sections) = self.body(node, &role);
-        Section { level, heading, role, source_hint, blocks, sections }
+        Section {
+            level,
+            heading,
+            role,
+            source_hint,
+            blocks,
+            sections,
+        }
     }
 
     /// The grammar leaves the inside of a heading as plain text, so `''X''`
@@ -174,7 +197,11 @@ impl<'a> PageBuilder<'a> {
         self.mark(node);
         let inner = slice(self.source, node).trim().trim_matches('=').trim();
         let Some(tree) = self.heading_parser.parse(inner, None) else {
-            return RichText { text: inner.to_string(), wikitext: inner.to_string(), spans: vec![] };
+            return RichText {
+                text: inner.to_string(),
+                wikitext: inner.to_string(),
+                spans: vec![],
+            };
         };
         let mut text = rich_text(inner, tree.root_node(), self.title);
         text.wikitext = inner.to_string();
@@ -210,7 +237,9 @@ impl<'a> PageBuilder<'a> {
             "paragraph" => self.paragraph(node, out),
             "table" => {
                 self.mark(node);
-                out.push(Block::Table { wikitext: slice(self.source, node).to_string() });
+                out.push(Block::Table {
+                    wikitext: slice(self.source, node).to_string(),
+                });
             }
             "horizontal_rule" => {
                 self.mark(node);
@@ -236,13 +265,18 @@ impl<'a> PageBuilder<'a> {
                 continue;
             }
             let depth = marker_depth(self.source, item);
-            let Some(content) = child_of_kind(item, "list_item_content") else { continue };
+            let Some(content) = child_of_kind(item, "list_item_content") else {
+                continue;
+            };
             let text = self.text(content);
             if depth <= 1 || current.is_none() {
                 if let Some(previous) = current.take() {
                     out.push(finish_item(previous, role));
                 }
-                current = Some(QuoteItem { text, annotations: Vec::new() });
+                current = Some(QuoteItem {
+                    text,
+                    annotations: Vec::new(),
+                });
             } else if let Some(item) = current.as_mut() {
                 let kind = annotation_kind(&text.text);
                 item.annotations.push(Annotation { depth, text, kind });
@@ -259,7 +293,9 @@ impl<'a> PageBuilder<'a> {
         let mut cursor = node.walk();
         let mut turns = Vec::new();
         for line in node.named_children(&mut cursor) {
-            let Some(content) = child_of_kind(line, "list_item_content") else { continue };
+            let Some(content) = child_of_kind(line, "list_item_content") else {
+                continue;
+            };
             let text = self.text(content);
             if text.is_empty() {
                 continue;
@@ -267,7 +303,10 @@ impl<'a> PageBuilder<'a> {
             turns.push(self.turn(content, text));
         }
         if !turns.is_empty() {
-            out.push(Block::Exchange(Exchange { turns, annotations: Vec::new() }));
+            out.push(Block::Exchange(Exchange {
+                turns,
+                annotations: Vec::new(),
+            }));
         }
     }
 
@@ -286,7 +325,8 @@ impl<'a> PageBuilder<'a> {
             let name_text = name.text.trim().trim_end_matches(':').trim().to_string();
             // The bold run is a speaker only when a colon follows it.
             let after = &self.source[first.unwrap().end_byte()..content.end_byte()];
-            if !name_text.is_empty() && (after.trim_start().starts_with(':') || name.text.trim_end().ends_with(':'))
+            if !name_text.is_empty()
+                && (after.trim_start().starts_with(':') || name.text.trim_end().ends_with(':'))
             {
                 speaker_link = name.spans.iter().find_map(|span| match &span.kind {
                     SpanKind::Link { target } => Some(target.clone()),
@@ -300,7 +340,12 @@ impl<'a> PageBuilder<'a> {
             Some(_) => strip_speaker(text),
             None => text,
         };
-        Turn { speaker, speaker_link, text, is_stage_direction }
+        Turn {
+            speaker,
+            speaker_link,
+            text,
+            is_stage_direction,
+        }
     }
 
     fn paragraph(&mut self, node: Node, out: &mut Vec<Block>) {
@@ -352,15 +397,23 @@ impl<'a> PageBuilder<'a> {
         let caption = child_of_kind(node, "file_caption").map(|n| self.text(n));
         // A caption often repeats a quote and names its author after a tilde.
         let attribution = caption.as_ref().and_then(|c| {
-            c.text.rsplit_once(" ~ ").map(|(_, author)| author.trim().to_string())
+            c.text
+                .rsplit_once(" ~ ")
+                .map(|(_, author)| author.trim().to_string())
         });
-        Media { file, caption, caption_attribution: attribution }
+        Media {
+            file,
+            caption,
+            caption_attribution: attribution,
+        }
     }
 
     fn category_of(&self, node: Node) -> Option<String> {
         let page = child_of_kind(node, "wikilink_page")?;
         let title = slice(self.source, page).trim();
-        let rest = title.strip_prefix("Category:").or_else(|| title.strip_prefix("category:"))?;
+        let rest = title
+            .strip_prefix("Category:")
+            .or_else(|| title.strip_prefix("category:"))?;
         Some(rest.trim().to_string())
     }
 }
@@ -375,12 +428,18 @@ fn finish_item(item: QuoteItem, role: &SectionRole) -> Block {
             | SectionRole::ExternalLinks
             | SectionRole::References
     );
-    if is_list && item.annotations.is_empty() { Block::Item(item.text) } else { Block::Quote(item) }
+    if is_list && item.annotations.is_empty() {
+        Block::Item(item.text)
+    } else {
+        Block::Quote(item)
+    }
 }
 
 /// Removes the `Name:` that opens a dialogue turn, and moves the spans with it.
 fn strip_speaker(mut text: RichText) -> RichText {
-    let Some(colon) = text.text.find(':') else { return text };
+    let Some(colon) = text.text.find(':') else {
+        return text;
+    };
     let cut = text.text[colon + 1..].len();
     let removed = (text.text.len() - cut) as u32;
     text.text = text.text[colon + 1..].trim_start().to_string();
@@ -423,7 +482,9 @@ fn child_of_kind<'t>(node: Node<'t>, kind: &str) -> Option<Node<'t>> {
 }
 
 fn marker_depth(source: &str, item: Node) -> u8 {
-    child_of_kind(item, "list_marker").map(|m| slice(source, m).trim().len() as u8).unwrap_or(1)
+    child_of_kind(item, "list_marker")
+        .map(|m| slice(source, m).trim().len() as u8)
+        .unwrap_or(1)
 }
 
 fn is_rule(source: &str, node: Node) -> bool {
@@ -468,8 +529,16 @@ fn interwiki_of(templates: &[TemplateRef], title: &str) -> Vec<PageRef> {
                 "commons" | "commonscat" | "commons category" | "commons cat" => Site::Commons,
                 _ => return None,
             };
-            let target = template.param("1").filter(|v| !v.is_empty()).unwrap_or(title);
-            Some(PageRef { site, lang: "en".to_string(), title: target.to_string(), fragment: None })
+            let target = template
+                .param("1")
+                .filter(|v| !v.is_empty())
+                .unwrap_or(title);
+            Some(PageRef {
+                site,
+                lang: "en".to_string(),
+                title: target.to_string(),
+                fragment: None,
+            })
         })
         .collect()
 }
@@ -517,12 +586,21 @@ mod tests {
         assert_eq!(quotes.role, SectionRole::Quotes);
         let decade = &quotes.sections[0];
         assert_eq!(decade.level, 3);
-        assert_eq!(decade.source_hint, Some(SourceHint::Period { from: 1770, to: 1779 }));
+        assert_eq!(
+            decade.source_hint,
+            Some(SourceHint::Period {
+                from: 1770,
+                to: 1779
+            })
+        );
         let work = &decade.sections[0];
         assert_eq!(work.level, 4);
         assert_eq!(
             work.source_hint,
-            Some(SourceHint::Work { title: "Common Sense".into(), year: Some(1776) })
+            Some(SourceHint::Work {
+                title: "Common Sense".into(),
+                year: Some(1776)
+            })
         );
     }
 
@@ -530,12 +608,16 @@ mod tests {
     fn hangs_the_double_star_lines_under_the_quote() {
         let document = document(PERSON);
         let work = &document.sections[0].sections[0].sections[0];
-        let Block::Quote(first) = &work.blocks[0] else { panic!("expected a quote") };
+        let Block::Quote(first) = &work.blocks[0] else {
+            panic!("expected a quote")
+        };
         assert_eq!(first.text.text, "These are the times that try men's souls.");
         assert_eq!(first.annotations.len(), 2);
         assert_eq!(first.annotations[0].kind, AnnotationKind::Citation);
         assert_eq!(first.annotations[1].kind, AnnotationKind::Translation);
-        let Block::Quote(second) = &work.blocks[1] else { panic!("expected a quote") };
+        let Block::Quote(second) = &work.blocks[1] else {
+            panic!("expected a quote")
+        };
         assert!(second.annotations.is_empty());
     }
 
@@ -586,7 +668,9 @@ mod tests {
     #[test]
     fn reads_the_speaker_and_drops_it_from_the_text() {
         let document = document(DIALOGUE);
-        let Block::Exchange(first) = &document.sections[0].blocks[0] else { panic!("no exchange") };
+        let Block::Exchange(first) = &document.sections[0].blocks[0] else {
+            panic!("no exchange")
+        };
         assert_eq!(first.turns[0].speaker.as_deref(), Some("Alice"));
         assert_eq!(first.turns[0].text.text, "Hello there.");
         assert_eq!(first.turns[1].speaker.as_deref(), Some("Bob"));
@@ -596,7 +680,9 @@ mod tests {
     #[test]
     fn marks_a_stage_direction() {
         let document = document(DIALOGUE);
-        let Block::Exchange(second) = &document.sections[0].blocks[2] else { panic!("no exchange") };
+        let Block::Exchange(second) = &document.sections[0].blocks[2] else {
+            panic!("no exchange")
+        };
         assert!(second.turns[0].is_stage_direction);
         assert_eq!(second.turns[0].speaker, None);
         assert!(!second.turns[1].is_stage_direction);
@@ -617,12 +703,16 @@ mod tests {
 
     #[test]
     fn reads_an_image_caption_and_its_attribution() {
-        let document = document(
-            "== Quotes ==\n[[File:X.jpg|thumb|A quote here ~ [[John Adams]]]]\n* Body\n",
-        );
-        let Block::Media(media) = &document.sections[0].blocks[0] else { panic!("no media") };
+        let document =
+            document("== Quotes ==\n[[File:X.jpg|thumb|A quote here ~ [[John Adams]]]]\n* Body\n");
+        let Block::Media(media) = &document.sections[0].blocks[0] else {
+            panic!("no media")
+        };
         assert_eq!(media.file, "File:X.jpg");
-        assert_eq!(media.caption.as_ref().unwrap().text, "A quote here ~ John Adams");
+        assert_eq!(
+            media.caption.as_ref().unwrap().text,
+            "A quote here ~ John Adams"
+        );
         assert_eq!(media.caption_attribution.as_deref(), Some("John Adams"));
     }
 }

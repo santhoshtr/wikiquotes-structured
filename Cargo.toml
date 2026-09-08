@@ -11,6 +11,7 @@ license = "MIT"
 [dependencies]
 anyhow = "1.0.104"
 arrow = "59.3.0"
+blake3 = "1.8.7"
 clap = { version = "4.6.6", features = ["derive"] }
 flate2 = "1.1.10"
 parquet = "59.3.0"

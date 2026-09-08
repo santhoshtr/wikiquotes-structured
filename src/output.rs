@@ -1,13 +1,21 @@
 //! Writers for the pipeline artifacts.
 
 use std::fs::File;
-use std::io::{BufWriter, Write};
+use std::io::{BufRead, BufReader, BufWriter, Write};
 use std::path::Path;
 
 use anyhow::{Context, Result};
 use flate2::Compression;
+use flate2::read::MultiGzDecoder;
 use flate2::write::GzEncoder;
 use serde::Serialize;
+
+/// Reads a gzip JSON Lines file back, one line at a time.
+pub fn read_lines(path: &Path) -> Result<impl Iterator<Item = std::io::Result<String>>> {
+    let file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+    let reader = BufReader::with_capacity(1 << 20, MultiGzDecoder::new(file));
+    Ok(reader.lines())
+}
 
 /// Writes one JSON value per line into a gzip file.
 pub struct JsonLines {

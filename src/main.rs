@@ -2,7 +2,9 @@ mod citation;
 mod classify;
 mod dump;
 mod model;
+mod normalize;
 mod output;
+mod parquet_out;
 mod parse;
 mod quote;
 mod roles;
@@ -24,6 +26,15 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
+    /// Turn the Layer 1 document model into quote records.
+    Normalize {
+        #[arg(long, default_value = "en")]
+        wiki_language: String,
+        #[arg(long)]
+        pages: PathBuf,
+        #[arg(long)]
+        out: PathBuf,
+    },
     /// Read the dump and write the Layer 1 document model.
     Parse {
         #[arg(long, default_value = "en")]
@@ -49,6 +60,22 @@ struct Redirect<'a> {
 
 fn main() -> Result<()> {
     match Cli::parse().command {
+        Command::Normalize { wiki_language, pages, out } => {
+            let _ = wiki_language;
+            let mut writer = parquet_out::QuoteWriter::create(&out)?;
+            let mut documents = 0u32;
+            for line in output::read_lines(&pages)? {
+                let line = line?;
+                let document: model::Document = serde_json::from_str(&line)?;
+                documents += 1;
+                for quote in normalize::quotes(&document) {
+                    writer.push(quote)?;
+                }
+            }
+            let rows = writer.finish()?;
+            eprintln!("documents {documents}, quotes {rows}");
+            Ok(())
+        }
         Command::Parse { wiki_language, input, pages, redirects } => {
             let mut redirect_writer = output::JsonLines::create(&redirects)?;
             let mut page_writer = output::JsonLines::create(&pages)?;

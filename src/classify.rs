@@ -13,7 +13,11 @@ use crate::model::{Block, Document, PageType, TemplateRef};
 
 /// Returns the page type and the category or template that decided it.
 pub fn classify(document: &Document) -> (PageType, Vec<String>) {
-    let categories: Vec<String> = document.categories.iter().map(|c| c.to_lowercase()).collect();
+    let categories: Vec<String> = document
+        .categories
+        .iter()
+        .map(|c| c.to_lowercase())
+        .collect();
     let templates = template_names(document);
 
     for &(page_type, test) in RULES {
@@ -44,7 +48,9 @@ const RULES: &[(PageType, Test)] = &[
         category_where(categories, |c| c.ends_with(" seasons"))
     }),
     (PageType::Film, |categories, _, _| {
-        category_where(categories, |c| c.ends_with(" film") || c.ends_with(" films"))
+        category_where(categories, |c| {
+            c.ends_with(" film") || c.ends_with(" films")
+        })
     }),
     (PageType::TelevisionSeries, |categories, _, _| {
         category_where(categories, |c| {
@@ -59,7 +65,9 @@ const RULES: &[(PageType, Test)] = &[
         category_where(categories, |c| c.contains("video games"))
     }),
     (PageType::MusicalWork, |categories, _, _| {
-        category_where(categories, |c| c.ends_with(" songs") || c.ends_with(" albums"))
+        category_where(categories, |c| {
+            c.ends_with(" songs") || c.ends_with(" albums")
+        })
     }),
     (PageType::LiteraryWork, |categories, _, _| {
         category_where(categories, |c| {
@@ -74,7 +82,9 @@ const RULES: &[(PageType, Test)] = &[
         category_where(categories, |c| c.contains("proverbs"))
     }),
     (PageType::Theme, |categories, _, _| {
-        category_where(categories, |c| c == "themes" || c == "virtues" || c == "emotions")
+        category_where(categories, |c| {
+            c == "themes" || c == "virtues" || c == "emotions"
+        })
     }),
     (PageType::List, |_, _, title| {
         let lower = title.to_lowercase();
@@ -84,11 +94,17 @@ const RULES: &[(PageType, Test)] = &[
 ];
 
 fn category_where(categories: &[String], test: impl Fn(&str) -> bool) -> Option<String> {
-    categories.iter().find(|c| test(c)).map(|c| format!("category: {c}"))
+    categories
+        .iter()
+        .find(|c| test(c))
+        .map(|c| format!("category: {c}"))
 }
 
 fn template_named(templates: &[String], names: &[&str]) -> Option<String> {
-    templates.iter().find(|t| names.contains(&t.as_str())).map(|t| format!("template: {t}"))
+    templates
+        .iter()
+        .find(|t| names.contains(&t.as_str()))
+        .map(|t| format!("template: {t}"))
 }
 
 fn last_word(category: &str) -> &str {
@@ -101,7 +117,9 @@ fn template_names(document: &Document) -> Vec<String> {
         Block::Template(template) => Some(template),
         _ => None,
     });
-    lead.chain(document.templates.iter()).map(|t: &TemplateRef| t.name.clone()).collect()
+    lead.chain(document.templates.iter())
+        .map(|t: &TemplateRef| t.name.clone())
+        .collect()
 }
 
 #[cfg(test)]
@@ -141,9 +159,15 @@ mod tests {
 
     #[test]
     fn reads_a_person_from_a_birth_or_death_category() {
-        assert_eq!(kind_of(&["1737 births"], &[], "Thomas Paine"), PageType::Person);
+        assert_eq!(
+            kind_of(&["1737 births"], &[], "Thomas Paine"),
+            PageType::Person
+        );
         assert_eq!(kind_of(&["BCE deaths"], &[], "Socrates"), PageType::Person);
-        assert_eq!(kind_of(&["Living people"], &[], "Someone"), PageType::Person);
+        assert_eq!(
+            kind_of(&["Living people"], &[], "Someone"),
+            PageType::Person
+        );
     }
 
     #[test]
@@ -155,26 +179,51 @@ mod tests {
     #[test]
     fn a_film_of_a_novel_is_a_film() {
         assert_eq!(
-            kind_of(&["Films based on novels", "2020 American films"], &[], "The Half of It"),
+            kind_of(
+                &["Films based on novels", "2020 American films"],
+                &[],
+                "The Half of It"
+            ),
             PageType::Film
         );
     }
 
     #[test]
     fn reads_the_other_subject_kinds() {
-        assert_eq!(kind_of(&["The Simpsons seasons"], &[], "S21"), PageType::TelevisionSeason);
-        assert_eq!(kind_of(&["Cancelled shows"], &[], "Show"), PageType::TelevisionSeries);
-        assert_eq!(kind_of(&["1990s video games"], &[], "Game"), PageType::VideoGame);
-        assert_eq!(kind_of(&["Works by Alexander Pope"], &[], "The Dunciad"), PageType::LiteraryWork);
-        assert_eq!(kind_of(&["Latin proverbs"], &[], "Proverb"), PageType::Proverbs);
+        assert_eq!(
+            kind_of(&["The Simpsons seasons"], &[], "S21"),
+            PageType::TelevisionSeason
+        );
+        assert_eq!(
+            kind_of(&["Cancelled shows"], &[], "Show"),
+            PageType::TelevisionSeries
+        );
+        assert_eq!(
+            kind_of(&["1990s video games"], &[], "Game"),
+            PageType::VideoGame
+        );
+        assert_eq!(
+            kind_of(&["Works by Alexander Pope"], &[], "The Dunciad"),
+            PageType::LiteraryWork
+        );
+        assert_eq!(
+            kind_of(&["Latin proverbs"], &[], "Proverb"),
+            PageType::Proverbs
+        );
         assert_eq!(kind_of(&["Themes"], &[], "Warmness"), PageType::Theme);
         assert_eq!(kind_of(&[], &[], "List of last words"), PageType::List);
     }
 
     #[test]
     fn a_template_marks_a_disambiguation_or_a_placeholder() {
-        assert_eq!(kind_of(&[], &["disambig"], "Smith"), PageType::Disambiguation);
-        assert_eq!(kind_of(&[], &["year page placeholder"], "1903"), PageType::Placeholder);
+        assert_eq!(
+            kind_of(&[], &["disambig"], "Smith"),
+            PageType::Disambiguation
+        );
+        assert_eq!(
+            kind_of(&[], &["year page placeholder"], "1903"),
+            PageType::Placeholder
+        );
     }
 
     #[test]

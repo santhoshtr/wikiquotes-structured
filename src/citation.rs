@@ -28,7 +28,9 @@ pub fn apply(source: &mut Source, part: &RichText) {
     }
     read_spans(source, part);
 
-    if let Some((iso, end, precision, raw)) = read_date(text) {
+    // "Retrieved 29 July 2014" is when somebody visited a web page, not when
+    // the words were said.
+    if let Some((iso, end, precision, raw)) = read_date(before_retrieval(text)) {
         set(&mut source.date_iso, Some(iso));
         set(&mut source.date_end_iso, end);
         set(&mut source.date_precision, Some(precision));
@@ -59,7 +61,10 @@ fn first_italic(part: &RichText) -> Option<String> {
         .iter()
         .filter(|s| matches!(s.kind, SpanKind::Italic | SpanKind::BoldItalic))
         .min_by_key(|s| s.start)?;
-    let title = part.text.get(span.start as usize..span.end as usize)?.trim();
+    let title = part
+        .text
+        .get(span.start as usize..span.end as usize)?
+        .trim();
     // A one-word italic run is usually emphasis, not a title.
     (title.len() > 2).then(|| title.trim_matches(',').trim().to_string())
 }
@@ -97,9 +102,19 @@ fn read_spans(source: &mut Source, part: &RichText) {
 }
 
 fn read_cite_template(source: &mut Source, template: &crate::model::TemplateRef) {
-    let param = |key: &str| template.param(key).filter(|v| !v.is_empty()).map(str::to_string);
+    let param = |key: &str| {
+        template
+            .param(key)
+            .filter(|v| !v.is_empty())
+            .map(str::to_string)
+    };
     set(&mut source.work_title, param("title"));
-    set(&mut source.publication, param("journal").or_else(|| param("work")).or_else(|| param("newspaper")));
+    set(
+        &mut source.publication,
+        param("journal")
+            .or_else(|| param("work"))
+            .or_else(|| param("newspaper")),
+    );
     set(&mut source.publisher, param("publisher"));
     set(&mut source.isbn, param("isbn"));
     set(&mut source.url, param("url"));
@@ -117,7 +132,10 @@ fn read_cite_template(source: &mut Source, template: &crate::model::TemplateRef)
         params: template
             .params
             .iter()
-            .map(|(key, value)| Param { key: key.clone(), value: value.clone() })
+            .map(|(key, value)| Param {
+                key: key.clone(),
+                value: value.clone(),
+            })
             .collect(),
     });
 }
@@ -162,12 +180,10 @@ const MONTHS: [&str; 12] = [
     "december",
 ];
 
-static DAY_MONTH_YEAR: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b([0-3]?\d)\s+([a-z]{3,9})\.?,?\s+(\d{3,4})\b").unwrap()
-});
-static MONTH_DAY_YEAR: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b([a-z]{3,9})\.?\s+([0-3]?\d),\s*(\d{3,4})\b").unwrap()
-});
+static DAY_MONTH_YEAR: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)\b([0-3]?\d)\s+([a-z]{3,9})\.?,?\s+(\d{3,4})\b").unwrap());
+static MONTH_DAY_YEAR: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)\b([a-z]{3,9})\.?\s+([0-3]?\d),\s*(\d{3,4})\b").unwrap());
 static MONTH_YEAR: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"(?i)\b([a-z]{3,9})\.?\s+(\d{3,4})\b").unwrap());
 static CIRCA: LazyLock<Regex> =
@@ -184,9 +200,8 @@ static YEAR_IN_BRACKETS: LazyLock<Regex> =
 static PAGE: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)\bpp?\.\s*([0-9ivxlc]+(?:\s*[-\x{2013}]\s*[0-9ivxlc]+)?)").unwrap()
 });
-static CHAPTER: LazyLock<Regex> = LazyLock::new(|| {
-    Regex::new(r"(?i)\b(?:ch\.|chapter)\s*([0-9]+|[ivxlc]+)\b").unwrap()
-});
+static CHAPTER: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"(?i)\b(?:ch\.|chapter)\s*([0-9]+|[ivxlc]+)\b").unwrap());
 static PART: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"(?i)\b(?:no\.|number|book|part|vol\.|volume)\s*([0-9]+|[ivxlc]+)\b").unwrap()
 });
@@ -223,10 +238,20 @@ fn month_number(name: &str) -> Option<u8> {
 fn read_date(text: &str) -> Option<(String, Option<String>, String, String)> {
     if let Some(c) = BCE.captures(text) {
         let year: i32 = c[1].parse().ok()?;
-        return Some((format!("-{year:04}"), None, "year".into(), c[0].trim().to_string()));
+        return Some((
+            format!("-{year:04}"),
+            None,
+            "year".into(),
+            c[0].trim().to_string(),
+        ));
     }
     if let Some(c) = YEAR_RANGE.captures(text) {
-        return Some((c[1].to_string(), Some(c[2].to_string()), "range".into(), c[0].to_string()));
+        return Some((
+            c[1].to_string(),
+            Some(c[2].to_string()),
+            "range".into(),
+            c[0].to_string(),
+        ));
     }
     if let Some(c) = DAY_MONTH_YEAR.captures(text)
         && let Some(month) = month_number(&c[2])
@@ -265,7 +290,12 @@ fn read_date(text: &str) -> Option<(String, Option<String>, String, String)> {
     }
     if let Some(c) = CIRCA.captures(text) {
         let year: u16 = c[1].parse().ok()?;
-        return Some((format!("{year:04}"), None, "circa".into(), c[0].trim().to_string()));
+        return Some((
+            format!("{year:04}"),
+            None,
+            "circa".into(),
+            c[0].trim().to_string(),
+        ));
     }
     if let Some(c) = YEAR_IN_BRACKETS.captures(text) {
         let year: u16 = c[1].parse().ok()?;
@@ -276,31 +306,36 @@ fn read_date(text: &str) -> Option<(String, Option<String>, String, String)> {
     if trimmed.len() == 4
         && let Ok(year) = trimmed.parse::<u16>()
     {
-        return Some((format!("{year:04}"), None, "year".into(), trimmed.to_string()));
+        return Some((
+            format!("{year:04}"),
+            None,
+            "year".into(),
+            trimmed.to_string(),
+        ));
     }
     None
 }
 
+/// Cuts the line at the point where it stops talking about the quote.
+fn before_retrieval(text: &str) -> &str {
+    let lower = text.to_lowercase();
+    ["retrieved", "accessed", "archived", "as reported in"]
+        .iter()
+        .filter_map(|needle| lower.find(needle))
+        .min()
+        .map_or(text, |cut| &text[..cut])
+}
+
+/// What kind of thing the words came from. Read from the nouns a citation uses.
+/// The multi-word phrases come first, because "address to the nation" is a
+/// speech while "his address" is where somebody lives.
 fn read_occasion(text: &str) -> Option<String> {
     let lower = text.to_lowercase();
     for (needle, occasion) in [
-        ("letter to", "letter"),
-        ("in a letter", "letter"),
-        ("letter of", "letter"),
-        ("interview", "interview"),
-        ("speech", "speech"),
-        ("address to", "speech"),
-        ("address at", "speech"),
-        ("lecture", "lecture"),
-        ("sermon", "sermon"),
-        ("testimony", "testimony"),
         ("press conference", "press conference"),
         ("news conference", "press conference"),
-        ("diary entry", "diary"),
-        ("journal entry", "diary"),
-        ("essay", "essay"),
-        ("editorial", "editorial"),
-        ("tweet", "post"),
+        ("address to", "speech"),
+        ("address at", "speech"),
         ("blog post", "post"),
         ("facebook post", "post"),
     ] {
@@ -308,7 +343,40 @@ fn read_occasion(text: &str) -> Option<String> {
             return Some(occasion.to_string());
         }
     }
+    for (word, occasion) in [
+        ("letter", "letter"),
+        ("letters", "letter"),
+        ("interview", "interview"),
+        ("speech", "speech"),
+        ("lecture", "lecture"),
+        ("sermon", "sermon"),
+        ("testimony", "testimony"),
+        ("diary", "diary"),
+        ("essay", "essay"),
+        ("editorial", "editorial"),
+        ("tweet", "post"),
+    ] {
+        if contains_word(&lower, word) {
+            return Some(occasion.to_string());
+        }
+    }
     None
+}
+
+/// True when `word` appears in `text` on its own, not inside a longer word.
+fn contains_word(text: &str, word: &str) -> bool {
+    let mut from = 0;
+    while let Some(found) = text[from..].find(word) {
+        let start = from + found;
+        let end = start + word.len();
+        let before_ok = start == 0 || !text[..start].ends_with(|c: char| c.is_alphanumeric());
+        let after_ok = !text[end..].starts_with(|c: char| c.is_alphanumeric());
+        if before_ok && after_ok {
+            return true;
+        }
+        from = end;
+    }
+    false
 }
 
 #[cfg(test)]
@@ -317,7 +385,9 @@ mod tests {
 
     fn source_of(wikitext: &str) -> Source {
         let mut parser = tree_sitter::Parser::new();
-        parser.set_language(&tree_sitter_wikitext::LANGUAGE.into()).unwrap();
+        parser
+            .set_language(&tree_sitter_wikitext::LANGUAGE.into())
+            .unwrap();
         let line = format!("* {wikitext}");
         let tree = parser.parse(&line, None).unwrap();
         let content = find(tree.root_node(), "list_item_content").expect("no list item");
@@ -332,7 +402,8 @@ mod tests {
             return Some(node);
         }
         let mut cursor = node.walk();
-        node.named_children(&mut cursor).find_map(|child| find(child, kind))
+        node.named_children(&mut cursor)
+            .find_map(|child| find(child, kind))
     }
 
     #[test]
@@ -346,11 +417,26 @@ mod tests {
 
     #[test]
     fn reads_the_date_forms() {
-        assert_eq!(source_of("(5 February 2006)").date_iso.as_deref(), Some("2006-02-05"));
-        assert_eq!(source_of("(February 5, 2006)").date_iso.as_deref(), Some("2006-02-05"));
-        assert_eq!(source_of("(November 1886)").date_iso.as_deref(), Some("1886-11"));
-        assert_eq!(source_of("''Book'' (1990)").date_iso.as_deref(), Some("1990"));
-        assert_eq!(source_of("c. 1200").date_precision.as_deref(), Some("circa"));
+        assert_eq!(
+            source_of("(5 February 2006)").date_iso.as_deref(),
+            Some("2006-02-05")
+        );
+        assert_eq!(
+            source_of("(February 5, 2006)").date_iso.as_deref(),
+            Some("2006-02-05")
+        );
+        assert_eq!(
+            source_of("(November 1886)").date_iso.as_deref(),
+            Some("1886-11")
+        );
+        assert_eq!(
+            source_of("''Book'' (1990)").date_iso.as_deref(),
+            Some("1990")
+        );
+        assert_eq!(
+            source_of("c. 1200").date_precision.as_deref(),
+            Some("circa")
+        );
         assert_eq!(source_of("399 BCE").date_iso.as_deref(), Some("-0399"));
         let range = source_of("''War'' (1914-1918)");
         assert_eq!(range.date_iso.as_deref(), Some("1914"));
@@ -367,10 +453,22 @@ mod tests {
 
     #[test]
     fn reads_the_locators() {
-        assert_eq!(source_of("pp. 77-78").locator_page.as_deref(), Some("pp. 77-78"));
-        assert_eq!(source_of("Ch. 11").locator_chapter.as_deref(), Some("Ch. 11"));
-        assert_eq!(source_of("Act II, scene i").locator_act_scene.as_deref(), Some("Act II, scene i"));
-        assert_eq!(source_of("lines 39-40").locator_line.as_deref(), Some("lines 39-40"));
+        assert_eq!(
+            source_of("pp. 77-78").locator_page.as_deref(),
+            Some("pp. 77-78")
+        );
+        assert_eq!(
+            source_of("Ch. 11").locator_chapter.as_deref(),
+            Some("Ch. 11")
+        );
+        assert_eq!(
+            source_of("Act II, scene i").locator_act_scene.as_deref(),
+            Some("Act II, scene i")
+        );
+        assert_eq!(
+            source_of("lines 39-40").locator_line.as_deref(),
+            Some("lines 39-40")
+        );
     }
 
     #[test]
@@ -378,8 +476,14 @@ mod tests {
         let source = source_of(
             "{{cite journal|title=Building Up of a University|journal=The Nineteenth Century|date=November 1886|pages=724-741}}",
         );
-        assert_eq!(source.work_title.as_deref(), Some("Building Up of a University"));
-        assert_eq!(source.publication.as_deref(), Some("The Nineteenth Century"));
+        assert_eq!(
+            source.work_title.as_deref(),
+            Some("Building Up of a University")
+        );
+        assert_eq!(
+            source.publication.as_deref(),
+            Some("The Nineteenth Century")
+        );
         assert_eq!(source.work_type.as_deref(), Some("journal article"));
         assert_eq!(source.date_iso.as_deref(), Some("1886-11"));
         assert_eq!(source.cite_templates.len(), 1);
@@ -387,8 +491,14 @@ mod tests {
 
     #[test]
     fn reads_an_isbn_and_a_url() {
-        assert_eq!(source_of("{{ISBN|978-0-444-52133-0}}").isbn.as_deref(), Some("978-0-444-52133-0"));
-        assert_eq!(source_of("ISBN 0-444-52133-X").isbn.as_deref(), Some("0-444-52133-X"));
+        assert_eq!(
+            source_of("{{ISBN|978-0-444-52133-0}}").isbn.as_deref(),
+            Some("978-0-444-52133-0")
+        );
+        assert_eq!(
+            source_of("ISBN 0-444-52133-X").isbn.as_deref(),
+            Some("0-444-52133-X")
+        );
         assert_eq!(
             source_of("[http://a.example/x A page]").url.as_deref(),
             Some("http://a.example/x")
@@ -396,10 +506,24 @@ mod tests {
     }
 
     #[test]
+    fn does_not_read_a_word_inside_another_word() {
+        assert_eq!(source_of("Letterman show").occasion, None);
+        assert_eq!(source_of("Letter no. 155").occasion.as_deref(), Some("letter"));
+    }
+
+    #[test]
     fn reads_the_occasion() {
         let source = source_of("in a letter to [[Thomas Jefferson]] (22 June 1819)");
         assert_eq!(source.occasion.as_deref(), Some("letter"));
         assert_eq!(source.date_iso.as_deref(), Some("1819-06-22"));
+    }
+
+    #[test]
+    fn ignores_the_date_a_web_page_was_visited() {
+        let source = source_of(
+            "Letter no. 155 (June 1880), published in [http://a.example the letters]. Retrieved 29 July 2014.",
+        );
+        assert_eq!(source.date_iso.as_deref(), Some("1880-06"));
     }
 
     #[test]
@@ -422,8 +546,12 @@ mod tests {
 
     #[test]
     fn links_a_wikisource_work() {
-        let source = source_of("''[[s:African Slavery in America|African Slavery in America]]'' (1775)");
+        let source =
+            source_of("''[[s:African Slavery in America|African Slavery in America]]'' (1775)");
         assert_eq!(source.work_link_site.as_deref(), Some("wikisource"));
-        assert_eq!(source.work_link_title.as_deref(), Some("African Slavery in America"));
+        assert_eq!(
+            source.work_link_title.as_deref(),
+            Some("African Slavery in America")
+        );
     }
 }
