@@ -1,3 +1,4 @@
+mod citation;
 mod classify;
 mod dump;
 mod model;
