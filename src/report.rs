@@ -72,7 +72,11 @@ pub fn build(pages: &Path, quotes: &Path) -> Result<Report> {
         let line = line?;
         let document: Document = serde_json::from_str(&line)?;
         report.pages.total += 1;
-        *report.pages.by_type.entry(type_name(&document)).or_default() += 1;
+        *report
+            .pages
+            .by_type
+            .entry(type_name(&document))
+            .or_default() += 1;
         report.pages.error_nodes += u64::from(document.parse.error_nodes);
         if document.parse.error_nodes > 0 {
             report.pages.with_error_node += 1;
@@ -89,12 +93,21 @@ pub fn build(pages: &Path, quotes: &Path) -> Result<Report> {
         let quote = quote?;
         report.quotes.total += 1;
         *report.quotes.by_kind.entry(quote.kind.clone()).or_default() += 1;
-        *report.quotes.by_status.entry(quote.status.clone()).or_default() += 1;
-        counters.entry(quote.page_type.clone()).or_default().add(&quote);
+        *report
+            .quotes
+            .by_status
+            .entry(quote.status.clone())
+            .or_default() += 1;
+        counters
+            .entry(quote.page_type.clone())
+            .or_default()
+            .add(&quote);
         overall.add(&quote);
     }
-    report.quotes.by_page_type =
-        counters.into_iter().map(|(name, counter)| (name, counter.finish())).collect();
+    report.quotes.by_page_type = counters
+        .into_iter()
+        .map(|(name, counter)| (name, counter.finish()))
+        .collect();
     report.quotes.overall = overall.finish();
 
     let mut unnamed: Vec<Count> = headings
@@ -172,8 +185,11 @@ fn collect_headings(sections: &[Section], out: &mut BTreeMap<String, u64>) {
 
 fn read_quotes(path: &Path) -> Result<impl Iterator<Item = Result<Quote>>> {
     let file = std::fs::File::open(path)?;
-    let reader = ParquetRecordBatchReaderBuilder::try_new(file)?.with_batch_size(8192).build()?;
-    let fields = Vec::<FieldRef>::from_type::<Quote>(TracingOptions::default().allow_null_fields(true))?;
+    let reader = ParquetRecordBatchReaderBuilder::try_new(file)?
+        .with_batch_size(8192)
+        .build()?;
+    let fields =
+        Vec::<FieldRef>::from_type::<Quote>(TracingOptions::default().allow_null_fields(true))?;
     Ok(reader.flat_map(move |batch| {
         let rows: Vec<Result<Quote>> = match batch {
             Ok(batch) => match serde_arrow::from_record_batch::<Vec<Quote>>(&batch) {

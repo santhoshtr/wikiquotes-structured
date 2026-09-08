@@ -384,6 +384,12 @@ mod tests {
     use super::*;
 
     fn source_of(wikitext: &str) -> Source {
+        let mut source = Source::default();
+        apply(&mut source, &rich(wikitext));
+        source
+    }
+
+    fn rich(wikitext: &str) -> RichText {
         let mut parser = tree_sitter::Parser::new();
         parser
             .set_language(&tree_sitter_wikitext::LANGUAGE.into())
@@ -391,10 +397,7 @@ mod tests {
         let line = format!("* {wikitext}");
         let tree = parser.parse(&line, None).unwrap();
         let content = find(tree.root_node(), "list_item_content").expect("no list item");
-        let text = crate::wikitext::rich_text(&line, content, "Test");
-        let mut source = Source::default();
-        apply(&mut source, &text);
-        source
+        crate::wikitext::rich_text(&line, content, "Test")
     }
 
     fn find<'t>(node: tree_sitter::Node<'t>, kind: &str) -> Option<tree_sitter::Node<'t>> {
@@ -508,7 +511,10 @@ mod tests {
     #[test]
     fn does_not_read_a_word_inside_another_word() {
         assert_eq!(source_of("Letterman show").occasion, None);
-        assert_eq!(source_of("Letter no. 155").occasion.as_deref(), Some("letter"));
+        assert_eq!(
+            source_of("Letter no. 155").occasion.as_deref(),
+            Some("letter")
+        );
     }
 
     #[test]
@@ -535,13 +541,17 @@ mod tests {
     }
 
     #[test]
-    fn a_later_part_wins_over_an_earlier_one() {
-        let mut source = Source::default();
-        source.work_title = Some("Common Sense".into());
-        let heading_year = source.work_year;
-        assert_eq!(heading_year, None);
-        let second = source_of("''The American Crisis'', p. 3");
-        assert_eq!(second.work_title.as_deref(), Some("The American Crisis"));
+    fn a_later_part_wins_and_an_empty_one_changes_nothing() {
+        let mut source = source_of("''Common Sense'' (1776)");
+        assert_eq!(source.work_title.as_deref(), Some("Common Sense"));
+        // The line nearest the quote is the most specific, so it wins.
+        apply(&mut source, &rich("''The American Crisis'', p. 3"));
+        assert_eq!(source.work_title.as_deref(), Some("The American Crisis"));
+        assert_eq!(source.locator_page.as_deref(), Some("p. 3"));
+        // A part that names no work leaves the one already found alone.
+        apply(&mut source, &rich("p. 12"));
+        assert_eq!(source.work_title.as_deref(), Some("The American Crisis"));
+        assert_eq!(source.date_iso.as_deref(), Some("1776"));
     }
 
     #[test]

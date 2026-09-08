@@ -44,7 +44,12 @@ impl QuoteWriter {
         let file =
             File::create(path).with_context(|| format!("cannot write {}", path.display()))?;
         let writer = ArrowWriter::try_new(file, schema.into(), Some(properties))?;
-        Ok(Self { writer, fields, pending: Vec::with_capacity(ROW_GROUP), rows: 0 })
+        Ok(Self {
+            writer,
+            fields,
+            pending: Vec::with_capacity(ROW_GROUP),
+            rows: 0,
+        })
     }
 
     pub fn push(&mut self, quote: Quote) -> Result<()> {

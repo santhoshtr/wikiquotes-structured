@@ -94,7 +94,8 @@ impl DocumentBuilder {
         document.interwiki = interwiki_of(&document.templates, &page.title);
         (document.page_type, document.page_type_evidence) = classify::classify(&document);
         document.parse.error_nodes = count_errors(root);
-        document.parse.source_lines = source.lines().filter(|l| !l.trim().is_empty()).count() as u32;
+        document.parse.source_lines =
+            source.lines().filter(|l| !l.trim().is_empty()).count() as u32;
         document.parse.unassigned_lines = page_builder.coverage.unassigned(source);
         document
     }
@@ -445,7 +446,11 @@ fn strip_speaker(mut text: RichText) -> RichText {
     let removed = (text.text.len() - cut) as u32;
     // Some pages write ":'''Name''': :''[stage direction]''", with a second
     // colon that belongs to nothing.
-    text.text = text.text[colon + 1..].trim_start().trim_start_matches(':').trim_start().to_string();
+    text.text = text.text[colon + 1..]
+        .trim_start()
+        .trim_start_matches(':')
+        .trim_start()
+        .to_string();
     let dropped = removed + (cut - text.text.len()) as u32;
     let end = text.text.len() as u32;
     text.spans.retain(|span| span.end > dropped);
@@ -461,7 +466,13 @@ fn annotation_kind(text: &RichText) -> AnnotationKind {
     let lower = text.text.trim().to_lowercase();
     // A proverb page gives the words in the original script, then a
     // transliteration and a meaning, each on its own line.
-    for label in ["translation", "translated", "transliteration", "meaning", "literally"] {
+    for label in [
+        "translation",
+        "translated",
+        "transliteration",
+        "meaning",
+        "literally",
+    ] {
         if lower.starts_with(label) {
             return AnnotationKind::Translation;
         }
@@ -482,7 +493,11 @@ fn annotation_kind(text: &RichText) -> AnnotationKind {
         SpanKind::ExternalLink { url } => !url.is_empty(),
         _ => false,
     });
-    if has_citation { AnnotationKind::Citation } else { AnnotationKind::Note }
+    if has_citation {
+        AnnotationKind::Citation
+    } else {
+        AnnotationKind::Note
+    }
 }
 
 fn heading_of(section: Node) -> Option<Node> {

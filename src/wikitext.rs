@@ -295,8 +295,10 @@ impl<'a> Builder<'a> {
             self.push(&rendered);
         }
         // A {{w|…}} call is a Wikipedia link as well as text.
-        if matches!(template.name.as_str(), "w") {
-            if let Some(target) = template.param("1") {
+        if template.name == "w"
+            && let Some(target) = template.param("1")
+        {
+            {
                 let target = page_ref(target);
                 self.span(
                     start,

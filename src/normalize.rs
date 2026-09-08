@@ -14,7 +14,10 @@ use crate::quote::{self as out, Quote};
 
 pub fn quotes(document: &Document) -> Vec<Quote> {
     if document.redirect_to.is_some()
-        || matches!(document.page_type, PageType::Disambiguation | PageType::Placeholder)
+        || matches!(
+            document.page_type,
+            PageType::Disambiguation | PageType::Placeholder
+        )
     {
         return Vec::new();
     }
@@ -24,7 +27,11 @@ pub fn quotes(document: &Document) -> Vec<Quote> {
         subject: subject_of(document),
         out: Vec::new(),
     };
-    let root = Context { path: Vec::new(), parts: Vec::new(), role: SectionRole::Quotes };
+    let root = Context {
+        path: Vec::new(),
+        parts: Vec::new(),
+        role: SectionRole::Quotes,
+    };
     // Many pages, short ones above all, put their quotes before any heading.
     for (index, block) in document.lead.iter().enumerate() {
         builder.block(block, &root, index);
@@ -137,16 +144,16 @@ impl QuoteBuilder<'_> {
     fn block(&mut self, block: &Block, context: &Context, index: usize) {
         match block {
             Block::Quote(item) => {
-                if let Some(quote) = self.from_item(item, context, index) {
+                if let Some(quote) = self.record_for_item(item, context, index) {
                     self.out.push(quote);
                 }
             }
-            Block::Exchange(exchange) => self.from_exchange(exchange, context, index),
+            Block::Exchange(exchange) => self.records_for_exchange(exchange, context, index),
             _ => {}
         }
     }
 
-    fn from_item(&self, item: &QuoteItem, context: &Context, index: usize) -> Option<Quote> {
+    fn record_for_item(&self, item: &QuoteItem, context: &Context, index: usize) -> Option<Quote> {
         if item.text.text.trim().is_empty() {
             return None;
         }
@@ -161,15 +168,19 @@ impl QuoteBuilder<'_> {
         let citations: Vec<&Annotation> = item
             .annotations
             .iter()
-            .filter(|a| matches!(a.kind, AnnotationKind::Citation | AnnotationKind::Attribution))
+            .filter(|a| {
+                matches!(
+                    a.kind,
+                    AnnotationKind::Citation | AnnotationKind::Attribution
+                )
+            })
             .collect();
 
         let (source, source_from) = self.source(context, &citations);
         let (speaker, speaker_from) = self.speaker(context, &citations);
         quote.about = self.about(context, &quote);
         quote.speaker = speaker;
-        quote.annotations =
-            item.annotations.iter().map(annotation_out).collect();
+        quote.annotations = item.annotations.iter().map(annotation_out).collect();
         quote.translations = item
             .annotations
             .iter()
@@ -202,13 +213,16 @@ impl QuoteBuilder<'_> {
     /// A dialogue makes one record for the exchange and one for each turn that
     /// has a speaker. The exchange is the quotable unit; the turns carry the
     /// attribution.
-    fn from_exchange(&mut self, exchange: &Exchange, context: &Context, index: usize) {
+    fn records_for_exchange(&mut self, exchange: &Exchange, context: &Context, index: usize) {
         let citations: Vec<&Annotation> = exchange.annotations.iter().collect();
         let (source, source_from) = self.source(context, &citations);
         let (status, status_from) = status_of(&context.role, source.as_ref());
 
-        let speaking: Vec<&Turn> =
-            exchange.turns.iter().filter(|t| t.speaker.is_some() && !t.is_stage_direction).collect();
+        let speaking: Vec<&Turn> = exchange
+            .turns
+            .iter()
+            .filter(|t| t.speaker.is_some() && !t.is_stage_direction)
+            .collect();
 
         if speaking.len() > 1 {
             let joined = exchange
@@ -248,8 +262,12 @@ impl QuoteBuilder<'_> {
             if turn.text.text.trim().is_empty() {
                 continue;
             }
-            let mut quote =
-                self.base(&turn.text, context, index * 100 + turn_index + 1, "dialogue_turn");
+            let mut quote = self.base(
+                &turn.text,
+                context,
+                index * 100 + turn_index + 1,
+                "dialogue_turn",
+            );
             quote.speaker = Some(self.character(name, turn.speaker_link.as_ref()));
             quote.about = self.about(context, &quote);
             quote.status = status.clone();
@@ -304,9 +322,7 @@ impl QuoteBuilder<'_> {
             // book that collected it, which is a source and not a speaker.
             (PageType::Proverbs, _) => (None, None),
             (PageType::Person, SectionRole::Misattributed) => (None, None),
-            (PageType::Person, _) => {
-                (Some(self.subject.clone()), Some("page_subject".to_string()))
-            }
+            (PageType::Person, _) => (Some(self.subject.clone()), Some("page_subject".to_string())),
             (
                 PageType::Film
                 | PageType::TelevisionSeries
@@ -491,7 +507,10 @@ fn agent_of(text: &RichText) -> Option<out::Agent> {
         && let SpanKind::Link { target } = &span.kind
         && !matches!(target.site, Site::Wikisource)
     {
-        let name = text.text.get(span.start as usize..span.end as usize)?.trim();
+        let name = text
+            .text
+            .get(span.start as usize..span.end as usize)?
+            .trim();
         if !name.is_empty() {
             return Some(out::Agent {
                 name: name.to_string(),
@@ -529,7 +548,9 @@ fn agent_of(text: &RichText) -> Option<out::Agent> {
 /// The author named inside a `{{cite …}}` call.
 fn cite_author(text: &RichText) -> Option<String> {
     for span in &text.spans {
-        let SpanKind::Template(template) = &span.kind else { continue };
+        let SpanKind::Template(template) = &span.kind else {
+            continue;
+        };
         if !template.name.starts_with("cite") && template.name != "citation" {
             continue;
         }
@@ -574,7 +595,10 @@ fn status_of(role: &SectionRole, source: Option<&out::Source>) -> (String, &'sta
         Some(status) => (status.to_string(), "section_role"),
         None => {
             let complete = source.map(|s| s.complete).unwrap_or(false);
-            ((if complete { "sourced" } else { "unsourced" }).to_string(), "citation_presence")
+            (
+                (if complete { "sourced" } else { "unsourced" }).to_string(),
+                "citation_presence",
+            )
         }
     }
 }
@@ -629,7 +653,11 @@ fn quote_id(title: &str, path: &[String], index: usize) -> String {
 }
 
 fn content_hash(text: &str) -> String {
-    let normalised = text.split_whitespace().collect::<Vec<_>>().join(" ").to_lowercase();
+    let normalised = text
+        .split_whitespace()
+        .collect::<Vec<_>>()
+        .join(" ")
+        .to_lowercase();
     blake3::hash(normalised.as_bytes()).to_hex()[..16].to_string()
 }
 
@@ -761,7 +789,10 @@ mod tests {
     #[test]
     fn the_full_heading_path_stays_outside_the_source() {
         let quotes = quotes_of("Thomas Paine", PERSON);
-        assert_eq!(quotes[0].context_path, ["Quotes", "1790s", "Common Sense (1776)"]);
+        assert_eq!(
+            quotes[0].context_path,
+            ["Quotes", "1790s", "Common Sense (1776)"]
+        );
         // "Quotes" is a role heading, so it gives the source nothing.
         let source = quotes[0].source.as_ref().unwrap();
         assert!(!source.parts.iter().any(|p| p.raw == "Quotes"));
@@ -770,7 +801,10 @@ mod tests {
     #[test]
     fn a_quote_about_the_subject_names_the_other_speaker() {
         let quotes = quotes_of("Thomas Paine", PERSON);
-        let about = quotes.iter().find(|q| q.text.starts_with("Without the pen")).unwrap();
+        let about = quotes
+            .iter()
+            .find(|q| q.text.starts_with("Without the pen"))
+            .unwrap();
         assert_eq!(about.speaker.as_ref().unwrap().name, "John Adams");
         assert_eq!(about.provenance.speaker_from.as_deref(), Some("annotation"));
         assert_eq!(about.about[0].name, "Thomas Paine");
@@ -781,7 +815,10 @@ mod tests {
     #[test]
     fn a_misattributed_quote_has_no_speaker() {
         let quotes = quotes_of("Thomas Paine", PERSON);
-        let bad = quotes.iter().find(|q| q.text.starts_with("Lead, follow")).unwrap();
+        let bad = quotes
+            .iter()
+            .find(|q| q.text.starts_with("Lead, follow"))
+            .unwrap();
         assert!(bad.speaker.is_none());
         assert_eq!(bad.provenance.speaker_from, None);
         assert_eq!(bad.status, "misattributed");
@@ -790,7 +827,10 @@ mod tests {
 
     #[test]
     fn a_citation_that_is_only_a_locator_is_not_complete() {
-        let quotes = quotes_of("Someone", "== Quotes ==\n* A quote.\n** p. 223\n[[Category:Living people]]\n");
+        let quotes = quotes_of(
+            "Someone",
+            "== Quotes ==\n* A quote.\n** p. 223\n[[Category:Living people]]\n",
+        );
         let source = quotes[0].source.as_ref().unwrap();
         assert_eq!(source.locator_page.as_deref(), Some("p. 223"));
         assert!(!source.complete);
@@ -826,7 +866,15 @@ mod tests {
         let kinds: Vec<&str> = quotes.iter().map(|q| q.kind.as_str()).collect();
         // Two turns, so the exchange is quotable on its own. The single-turn
         // exchange that follows is not repeated.
-        assert_eq!(kinds, ["dialogue", "dialogue_turn", "dialogue_turn", "dialogue_turn"]);
+        assert_eq!(
+            kinds,
+            [
+                "dialogue",
+                "dialogue_turn",
+                "dialogue_turn",
+                "dialogue_turn"
+            ]
+        );
         assert!(quotes[0].text.starts_with("Ellie Chu: Aster thinks"));
     }
 
@@ -836,8 +884,14 @@ mod tests {
         let turn = quotes.iter().find(|q| q.kind == "dialogue_turn").unwrap();
         assert_eq!(turn.speaker.as_ref().unwrap().name, "Ellie Chu");
         assert_eq!(turn.speaker.as_ref().unwrap().kind, "character");
-        assert_eq!(turn.speaker.as_ref().unwrap().played_by.as_deref(), Some("Leah Lewis"));
-        assert_eq!(turn.provenance.speaker_from.as_deref(), Some("dialogue_marker"));
+        assert_eq!(
+            turn.speaker.as_ref().unwrap().played_by.as_deref(),
+            Some("Leah Lewis")
+        );
+        assert_eq!(
+            turn.provenance.speaker_from.as_deref(),
+            Some("dialogue_marker")
+        );
     }
 
     #[test]
@@ -862,15 +916,24 @@ mod tests {
         );
         assert_eq!(quotes[0].language, "la");
         assert_eq!(quotes[0].language_from, "declared");
-        let plain = quotes_of("Someone", "== Quotes ==\n* Plain words\n[[Category:Living people]]\n");
+        let plain = quotes_of(
+            "Someone",
+            "== Quotes ==\n* Plain words\n[[Category:Living people]]\n",
+        );
         assert_eq!(plain[0].language, "en");
         assert_eq!(plain[0].language_from, "wiki_default");
     }
 
     #[test]
     fn the_same_words_get_the_same_content_hash() {
-        let one = quotes_of("A", "== Quotes ==\n* The  same   words.\n[[Category:Living people]]\n");
-        let two = quotes_of("B", "== Quotes ==\n* the same words.\n[[Category:Living people]]\n");
+        let one = quotes_of(
+            "A",
+            "== Quotes ==\n* The  same   words.\n[[Category:Living people]]\n",
+        );
+        let two = quotes_of(
+            "B",
+            "== Quotes ==\n* the same words.\n[[Category:Living people]]\n",
+        );
         assert_eq!(one[0].content_hash, two[0].content_hash);
         assert_ne!(one[0].id, two[0].id);
     }

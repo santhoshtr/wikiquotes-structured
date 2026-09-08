@@ -44,7 +44,12 @@ impl<R: Read> DumpReader<R> {
     pub fn new(source: R) -> Self {
         let mut reader = Reader::from_reader(BufReader::with_capacity(1 << 20, source));
         reader.config_mut().trim_text(false);
-        Self { reader, buf: Vec::new(), path: Vec::new(), page: None }
+        Self {
+            reader,
+            buf: Vec::new(),
+            path: Vec::new(),
+            page: None,
+        }
     }
 
     /// Path below `<page>`, joined with `/`. Empty when outside a page.
@@ -66,11 +71,14 @@ impl<R: Read> DumpReader<R> {
         if e.name().local_name().into_inner() != "redirect" {
             return Ok(());
         }
-        let Some(page) = self.page.as_mut() else { return Ok(()) };
+        let Some(page) = self.page.as_mut() else {
+            return Ok(());
+        };
         for attr in e.attributes() {
             let attr = attr?;
             if attr.key.local_name().into_inner() == "title" {
-                page.redirect_to = Some(attr.normalized_value(XmlVersion::Explicit1_0)?.into_owned());
+                page.redirect_to =
+                    Some(attr.normalized_value(XmlVersion::Explicit1_0)?.into_owned());
             }
         }
         Ok(())
@@ -78,7 +86,9 @@ impl<R: Read> DumpReader<R> {
 
     fn on_text(&mut self, text: &str) {
         let field = self.field();
-        let Some(page) = self.page.as_mut() else { return };
+        let Some(page) = self.page.as_mut() else {
+            return;
+        };
         match field.as_str() {
             "title" => page.title.push_str(text),
             "ns" => page.namespace = text.trim().parse().unwrap_or(0),
@@ -207,7 +217,9 @@ mod tests {
 </mediawiki>"#;
 
     fn read_all() -> Vec<RawPage> {
-        DumpReader::new(SAMPLE.as_bytes()).map(|p| p.unwrap()).collect()
+        DumpReader::new(SAMPLE.as_bytes())
+            .map(|p| p.unwrap())
+            .collect()
     }
 
     #[test]

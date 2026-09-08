@@ -1,4 +1,3 @@
-
 use std::path::PathBuf;
 
 use anyhow::Result;
@@ -76,7 +75,11 @@ fn main() -> Result<()> {
             );
             Ok(())
         }
-        Command::Normalize { wiki_language, pages, out } => {
+        Command::Normalize {
+            wiki_language,
+            pages,
+            out,
+        } => {
             let _ = wiki_language;
             let mut writer = parquet_out::QuoteWriter::create(&out)?;
             let mut documents = 0u32;
@@ -92,7 +95,12 @@ fn main() -> Result<()> {
             eprintln!("documents {documents}, quotes {rows}");
             Ok(())
         }
-        Command::Parse { wiki_language, input, pages, redirects } => {
+        Command::Parse {
+            wiki_language,
+            input,
+            pages,
+            redirects,
+        } => {
             let mut redirect_writer = output::JsonLines::create(&redirects)?;
             let mut page_writer = output::JsonLines::create(&pages)?;
             let (mut seen, mut content, mut redirected) = (0u32, 0u32, 0u32);
@@ -101,21 +109,20 @@ fn main() -> Result<()> {
             // in parallel over a batch. A tree-sitter parser is not Sync, so
             // every worker builds its own.
             let mut batch: Vec<dump::RawPage> = Vec::with_capacity(BATCH);
-            let flush = |batch: &mut Vec<dump::RawPage>,
-                             writer: &mut output::JsonLines|
-             -> Result<()> {
-                let lines: Vec<String> = batch
-                    .par_iter()
-                    .map_init(parse::DocumentBuilder::new, |builder, page| {
-                        serde_json::to_string(&builder.build(page, &wiki_language))
-                    })
-                    .collect::<serde_json::Result<Vec<String>>>()?;
-                for line in lines {
-                    writer.write_line(&line)?;
-                }
-                batch.clear();
-                Ok(())
-            };
+            let flush =
+                |batch: &mut Vec<dump::RawPage>, writer: &mut output::JsonLines| -> Result<()> {
+                    let lines: Vec<String> = batch
+                        .par_iter()
+                        .map_init(parse::DocumentBuilder::new, |builder, page| {
+                            serde_json::to_string(&builder.build(page, &wiki_language))
+                        })
+                        .collect::<serde_json::Result<Vec<String>>>()?;
+                    for line in lines {
+                        writer.write_line(&line)?;
+                    }
+                    batch.clear();
+                    Ok(())
+                };
 
             for page in dump::DumpReader::open(&input)? {
                 let page = page?;
@@ -125,7 +132,10 @@ fn main() -> Result<()> {
                 }
                 if let Some(target) = &page.redirect_to {
                     redirected += 1;
-                    redirect_writer.write(&Redirect { from: &page.title, to: target })?;
+                    redirect_writer.write(&Redirect {
+                        from: &page.title,
+                        to: target,
+                    })?;
                     continue;
                 }
                 content += 1;

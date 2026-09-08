@@ -30,10 +30,16 @@ pub fn role_of(heading: &str) -> SectionRole {
     if name.starts_with("quotes about") || name == "about" || name.starts_with("about ") {
         return SectionRole::QuotesAbout;
     }
-    if matches!(name.as_str(), "quotes" | "quote" | "quotations" | "sourced" | "sourced quotes") {
+    if matches!(
+        name.as_str(),
+        "quotes" | "quote" | "quotations" | "sourced" | "sourced quotes"
+    ) {
         return SectionRole::Quotes;
     }
-    if matches!(name.as_str(), "dialogue" | "dialogues" | "dialog" | "dialogs") {
+    if matches!(
+        name.as_str(),
+        "dialogue" | "dialogues" | "dialog" | "dialogs"
+    ) {
         return SectionRole::Dialogue;
     }
     if name.contains("tagline") {
@@ -54,7 +60,10 @@ pub fn role_of(heading: &str) -> SectionRole {
     if name.starts_with("external link") || name.starts_with("other project") {
         return SectionRole::ExternalLinks;
     }
-    if matches!(name.as_str(), "references" | "notes" | "footnotes" | "citations") {
+    if matches!(
+        name.as_str(),
+        "references" | "notes" | "footnotes" | "citations"
+    ) {
         return SectionRole::References;
     }
 
@@ -93,7 +102,10 @@ pub fn source_hint(heading: &str, is_italic: bool) -> Option<SourceHint> {
     let (title, year) = split_year(text);
     // A work title is either written in italics or followed by a year.
     if is_italic || year.is_some() {
-        return Some(SourceHint::Work { title: title.to_string(), year });
+        return Some(SourceHint::Work {
+            title: title.to_string(),
+            year,
+        });
     }
     None
 }
@@ -103,7 +115,10 @@ fn normalise(heading: &str) -> String {
 }
 
 fn is_season(name: &str) -> Option<u16> {
-    let rest = name.strip_prefix("season ").or_else(|| name.strip_prefix("series "))?.trim();
+    let rest = name
+        .strip_prefix("season ")
+        .or_else(|| name.strip_prefix("series "))?
+        .trim();
     rest.parse().ok().or_else(|| word_number(rest))
 }
 
@@ -113,7 +128,10 @@ fn word_number(word: &str) -> Option<u16> {
         "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven",
         "twelve",
     ];
-    WORDS.iter().position(|w| *w == word).map(|index| index as u16 + 1)
+    WORDS
+        .iter()
+        .position(|w| *w == word)
+        .map(|index| index as u16 + 1)
 }
 
 /// A heading that names a place inside a work: `Chapter 5`, `Act II`,
@@ -147,9 +165,14 @@ fn as_locator(text: &str) -> Option<SourceHint> {
             }
         }
     }
-    if matches!(lower.as_str(), "preface" | "prologue" | "epilogue" | "introduction" | "incipit" | "foreword" | "afterword")
-    {
-        return Some(SourceHint::Locator { kind: "part".to_string(), value: text.to_string() });
+    if matches!(
+        lower.as_str(),
+        "preface" | "prologue" | "epilogue" | "introduction" | "incipit" | "foreword" | "afterword"
+    ) {
+        return Some(SourceHint::Locator {
+            kind: "part".to_string(),
+            value: text.to_string(),
+        });
     }
     None
 }
@@ -161,16 +184,26 @@ fn as_period(text: &str) -> Option<SourceHint> {
         && let Ok(year) = decade.parse::<i32>()
         && decade.len() == 4
     {
-        return Some(SourceHint::Period { from: year, to: year + 9 });
+        return Some(SourceHint::Period {
+            from: year,
+            to: year + 9,
+        });
     }
     if text.len() == 4
         && let Ok(year) = text.parse::<i32>()
     {
-        return Some(SourceHint::Period { from: year, to: year });
+        return Some(SourceHint::Period {
+            from: year,
+            to: year,
+        });
     }
     let (from, to) = text.split_once(['-', '\u{2013}'])?;
     let (from, to) = (from.trim().parse().ok()?, to.trim().parse().ok()?);
-    if from > to { None } else { Some(SourceHint::Period { from, to }) }
+    if from > to {
+        None
+    } else {
+        Some(SourceHint::Period { from, to })
+    }
 }
 
 /// `Pilot [1.01]`, `The Cage [1x01]` or a plain `Episode 4`.
@@ -183,7 +216,10 @@ fn as_episode(text: &str) -> Option<SourceHint> {
         && number.chars().all(|c| c.is_ascii_digit())
         && !number.is_empty()
     {
-        return Some(SourceHint::Episode { title: None, code: Some(number.to_string()) });
+        return Some(SourceHint::Episode {
+            title: None,
+            code: Some(number.to_string()),
+        });
     }
     let open = text.rfind('[')?;
     let close = text.rfind(']')?;
@@ -192,7 +228,9 @@ fn as_episode(text: &str) -> Option<SourceHint> {
     }
     let code = text[open + 1..close].trim();
     let looks_like_a_code = !code.is_empty()
-        && code.chars().all(|c| c.is_ascii_digit() || c == '.' || c == 'x' || c == '-');
+        && code
+            .chars()
+            .all(|c| c.is_ascii_digit() || c == '.' || c == 'x' || c == '-');
     if !looks_like_a_code {
         return None;
     }
@@ -205,7 +243,9 @@ fn as_episode(text: &str) -> Option<SourceHint> {
 
 /// Splits `Common Sense (1776)` into its title and its year.
 fn split_year(text: &str) -> (&str, Option<u16>) {
-    let Some(open) = text.rfind('(') else { return (text, None) };
+    let Some(open) = text.rfind('(') else {
+        return (text, None);
+    };
     if !text.trim_end().ends_with(')') {
         return (text, None);
     }
@@ -241,7 +281,10 @@ mod tests {
     fn tells_attributed_from_misattributed() {
         assert_eq!(role_of("Attributed"), SectionRole::Attributed);
         assert_eq!(role_of("Misattributed"), SectionRole::Misattributed);
-        assert_eq!(role_of("Misattributed Quotes about Paine"), SectionRole::Misattributed);
+        assert_eq!(
+            role_of("Misattributed Quotes about Paine"),
+            SectionRole::Misattributed
+        );
     }
 
     #[test]
@@ -277,30 +320,57 @@ mod tests {
     fn reads_a_work_title() {
         assert_eq!(
             source_hint("Common Sense (1776)", false),
-            Some(SourceHint::Work { title: "Common Sense".into(), year: Some(1776) })
+            Some(SourceHint::Work {
+                title: "Common Sense".into(),
+                year: Some(1776)
+            })
         );
         assert_eq!(
             source_hint("The American Crisis", true),
-            Some(SourceHint::Work { title: "The American Crisis".into(), year: None })
+            Some(SourceHint::Work {
+                title: "The American Crisis".into(),
+                year: None
+            })
         );
     }
 
     #[test]
     fn reads_a_period() {
-        assert_eq!(source_hint("1790s", false), Some(SourceHint::Period { from: 1790, to: 1799 }));
-        assert_eq!(source_hint("1997", false), Some(SourceHint::Period { from: 1997, to: 1997 }));
+        assert_eq!(
+            source_hint("1790s", false),
+            Some(SourceHint::Period {
+                from: 1790,
+                to: 1799
+            })
+        );
+        assert_eq!(
+            source_hint("1997", false),
+            Some(SourceHint::Period {
+                from: 1997,
+                to: 1997
+            })
+        );
         assert_eq!(
             source_hint("1914-1918", false),
-            Some(SourceHint::Period { from: 1914, to: 1918 })
+            Some(SourceHint::Period {
+                from: 1914,
+                to: 1918
+            })
         );
     }
 
     #[test]
     fn reads_a_season_and_an_episode() {
-        assert_eq!(source_hint("Season 1", false), Some(SourceHint::Season { number: 1 }));
+        assert_eq!(
+            source_hint("Season 1", false),
+            Some(SourceHint::Season { number: 1 })
+        );
         assert_eq!(
             source_hint("Pilot [1.01]", true),
-            Some(SourceHint::Episode { title: Some("Pilot".into()), code: Some("1.01".into()) })
+            Some(SourceHint::Episode {
+                title: Some("Pilot".into()),
+                code: Some("1.01".into())
+            })
         );
     }
 
@@ -308,7 +378,10 @@ mod tests {
     fn reads_a_plain_episode_number() {
         assert_eq!(
             source_hint("Episode 4", false),
-            Some(SourceHint::Episode { title: None, code: Some("4".into()) })
+            Some(SourceHint::Episode {
+                title: None,
+                code: Some("4".into())
+            })
         );
         assert_eq!(source_hint("Episode of a life", false), None);
     }
@@ -316,22 +389,34 @@ mod tests {
     #[test]
     fn a_plain_heading_is_not_a_work() {
         assert_eq!(source_hint("Other", false), None);
-        assert_eq!(source_hint("Discourse to the Theophilanthropists", false), None);
+        assert_eq!(
+            source_hint("Discourse to the Theophilanthropists", false),
+            None
+        );
     }
 
     #[test]
     fn reads_a_place_inside_a_work() {
         assert_eq!(
             source_hint("Chapter 5", false),
-            Some(SourceHint::Locator { kind: "chapter".into(), value: "Chapter 5".into() })
+            Some(SourceHint::Locator {
+                kind: "chapter".into(),
+                value: "Chapter 5".into()
+            })
         );
         assert_eq!(
             source_hint("Act II", false),
-            Some(SourceHint::Locator { kind: "act_scene".into(), value: "Act II".into() })
+            Some(SourceHint::Locator {
+                kind: "act_scene".into(),
+                value: "Act II".into()
+            })
         );
         assert_eq!(
             source_hint("Preface", false),
-            Some(SourceHint::Locator { kind: "part".into(), value: "Preface".into() })
+            Some(SourceHint::Locator {
+                kind: "part".into(),
+                value: "Preface".into()
+            })
         );
         // A title that opens with one of those words is still a title.
         assert_eq!(source_hint("Book of Mormon", false), None);
@@ -339,7 +424,10 @@ mod tests {
 
     #[test]
     fn reads_a_season_written_as_a_word() {
-        assert_eq!(source_hint("Season One", false), Some(SourceHint::Season { number: 1 }));
+        assert_eq!(
+            source_hint("Season One", false),
+            Some(SourceHint::Season { number: 1 })
+        );
         assert_eq!(role_of("Season One"), SectionRole::Episodes);
     }
 }

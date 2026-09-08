@@ -38,9 +38,10 @@ fn every_fixture_matches_its_snapshot() {
 
     for wiki in fixture_files() {
         let name = wiki.file_stem().unwrap().to_string_lossy().to_string();
-        let meta: Meta =
-            serde_json::from_str(&std::fs::read_to_string(wiki.with_extension("meta.json")).unwrap())
-                .unwrap();
+        let meta: Meta = serde_json::from_str(
+            &std::fs::read_to_string(wiki.with_extension("meta.json")).unwrap(),
+        )
+        .unwrap();
         let page = RawPage {
             title: meta.title,
             page_id: meta.page_id,
@@ -94,7 +95,10 @@ fn the_fixtures_cover_the_page_types() {
         "proverbs",
         "redirect",
     ] {
-        assert!(names.iter().any(|n| n == expected), "missing fixture: {expected}");
+        assert!(
+            names.iter().any(|n| n == expected),
+            "missing fixture: {expected}"
+        );
     }
 }
 
