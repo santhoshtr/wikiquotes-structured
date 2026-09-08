@@ -16,7 +16,10 @@ pub fn rich_text(source: &str, node: Node, page_title: &str) -> RichText {
     let mut builder = Builder {
         source,
         page_title,
-        out: RichText { wikitext: slice(source, node).to_string(), ..RichText::default() },
+        out: RichText {
+            wikitext: slice(source, node).to_string(),
+            ..RichText::default()
+        },
     };
     builder.children(node);
     builder.trim();
@@ -57,7 +60,11 @@ pub fn template_ref(source: &str, node: Node) -> TemplateRef {
             _ => {}
         }
     }
-    TemplateRef { name, params, wikitext: slice(source, node).to_string() }
+    TemplateRef {
+        name,
+        params,
+        wikitext: slice(source, node).to_string(),
+    }
 }
 
 fn normalise_name(raw: &str) -> String {
@@ -86,7 +93,12 @@ pub fn page_ref(target: &str) -> PageRef {
         _ => ("en".to_string(), rest),
     };
 
-    PageRef { site, lang, title: title.to_string(), fragment }
+    PageRef {
+        site,
+        lang,
+        title: title.to_string(),
+        fragment,
+    }
 }
 
 fn site_for_prefix(prefix: &str) -> Option<Site> {
@@ -170,8 +182,11 @@ impl<'a> Builder<'a> {
             "template" => self.template(node),
             "comment" => {
                 let raw = slice(self.source, node);
-                let text =
-                    raw.trim_start_matches("<!--").trim_end_matches("-->").trim().to_string();
+                let text = raw
+                    .trim_start_matches("<!--")
+                    .trim_end_matches("-->")
+                    .trim()
+                    .to_string();
                 let at = self.at();
                 self.span(at, SpanKind::Comment { text });
             }
@@ -193,7 +208,10 @@ impl<'a> Builder<'a> {
                 }
             }
             // A signature renders as nothing useful in a quote.
-            "signature" | "user_signature" | "user_signature_with_date" | "current_date"
+            "signature"
+            | "user_signature"
+            | "user_signature_with_date"
+            | "current_date"
             | "parser_function" => {}
             _ => self.children(node),
         }
@@ -220,7 +238,12 @@ impl<'a> Builder<'a> {
         let shown = label.unwrap_or_else(|| display_title(&target));
         let start = self.at();
         self.push(&shown);
-        self.span(start, SpanKind::Link { target: page_ref(&target) });
+        self.span(
+            start,
+            SpanKind::Link {
+                target: page_ref(&target),
+            },
+        );
     }
 
     fn external_link(&mut self, node: Node) {
@@ -275,7 +298,15 @@ impl<'a> Builder<'a> {
         if matches!(template.name.as_str(), "w") {
             if let Some(target) = template.param("1") {
                 let target = page_ref(target);
-                self.span(start, SpanKind::Link { target: PageRef { site: Site::Wikipedia, ..target } });
+                self.span(
+                    start,
+                    SpanKind::Link {
+                        target: PageRef {
+                            site: Site::Wikipedia,
+                            ..target
+                        },
+                    },
+                );
             }
         }
         self.span(start, SpanKind::Template(template));
@@ -356,7 +387,9 @@ mod tests {
     /// Parses `"* …"` and returns the `RichText` of the list item content.
     fn item(wikitext: &str) -> RichText {
         let mut parser = tree_sitter::Parser::new();
-        parser.set_language(&tree_sitter_wikitext::LANGUAGE.into()).unwrap();
+        parser
+            .set_language(&tree_sitter_wikitext::LANGUAGE.into())
+            .unwrap();
         let tree = parser.parse(wikitext, None).unwrap();
         let node = find(tree.root_node(), "list_item_content").expect("no list item");
         rich_text(wikitext, node, "Thomas Paine")
@@ -367,7 +400,8 @@ mod tests {
             return Some(node);
         }
         let mut cursor = node.walk();
-        node.named_children(&mut cursor).find_map(|child| find(child, kind))
+        node.named_children(&mut cursor)
+            .find_map(|child| find(child, kind))
     }
 
     fn span_kinds(text: &RichText) -> Vec<&'static str> {
@@ -427,7 +461,10 @@ mod tests {
 
     #[test]
     fn renders_the_templates_that_carry_words() {
-        assert_eq!(item("* By {{w|Nikola Tesla|Tesla}} today").text, "By Tesla today");
+        assert_eq!(
+            item("* By {{w|Nikola Tesla|Tesla}} today").text,
+            "By Tesla today"
+        );
         assert_eq!(item("* {{lang|fr|bonjour}} all").text, "bonjour all");
         assert_eq!(item("* {{ISBN|0-306-40615-2}}").text, "ISBN 0-306-40615-2");
     }
@@ -473,12 +510,18 @@ mod tests {
 
     #[test]
     fn keeps_nowiki_content() {
-        assert_eq!(item("* shows <nowiki>[[raw]]</nowiki> here").text, "shows [[raw]] here");
+        assert_eq!(
+            item("* shows <nowiki>[[raw]]</nowiki> here").text,
+            "shows [[raw]] here"
+        );
     }
 
     #[test]
     fn fills_in_the_page_name() {
-        assert_eq!(item("* About {{PAGENAME}} only").text, "About Thomas Paine only");
+        assert_eq!(
+            item("* About {{PAGENAME}} only").text,
+            "About Thomas Paine only"
+        );
     }
 
     #[test]
