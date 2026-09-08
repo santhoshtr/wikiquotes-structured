@@ -1,4 +1,5 @@
 mod dump;
+mod model;
 mod output;
 
 use std::path::PathBuf;
