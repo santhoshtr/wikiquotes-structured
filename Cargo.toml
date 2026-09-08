@@ -1,0 +1,12 @@
+[package]
+name = "wikiquotes-structured"
+description = "wikitext grammar for the tree-sitter parsing library"
+version = "0.1.0"
+edition = "2024"
+keywords = ["wikiquotes", "parsing", "wikitext"]
+categories = ["structured-data", "wikiquotes"]
+repository = "https://github.com/santhoshtr/wikiquotes-structured"
+license = "MIT"
+
+[dependencies]
+tree-sitter-wikitext = "0.1.3"
