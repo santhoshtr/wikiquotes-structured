@@ -3,6 +3,7 @@ mod dump;
 mod model;
 mod output;
 mod parse;
+mod quote;
 mod roles;
 mod wikitext;
 
