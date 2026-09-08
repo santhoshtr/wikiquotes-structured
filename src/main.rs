@@ -1,3 +1,4 @@
+mod classify;
 mod dump;
 mod model;
 mod output;

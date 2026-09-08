@@ -6,6 +6,7 @@
 
 use tree_sitter::Node;
 
+use crate::classify;
 use crate::dump::RawPage;
 use crate::model::*;
 use crate::roles;
@@ -79,6 +80,7 @@ impl DocumentBuilder {
         document.templates =
             document.lead.iter().filter_map(block_template).cloned().collect::<Vec<_>>();
         document.interwiki = interwiki_of(&document.templates, &page.title);
+        (document.page_type, document.page_type_evidence) = classify::classify(&document);
         document.parse.error_nodes = count_errors(root);
         document.parse.unassigned_lines = page_builder.coverage.unassigned(source);
         document
